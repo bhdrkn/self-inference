@@ -35,6 +35,20 @@ You will need:
 
 Each post's branch has its own README with setup steps and benchmark commands.
 
+## Troubleshooting
+
+### Model not using the GPU (VRAM shows ~2 MiB)
+
+PyTorch silently falls back to CPU when the installed wheel's CUDA version doesn't match the driver. This repo pins torch on Linux to the PyTorch CUDA 12.4 index via `[tool.uv.sources]` in `pyproject.toml`. If you're on a different driver, update the index URL accordingly.
+
+Diagnose with:
+```bash
+uv run python -c "import torch; print(torch.cuda.is_available(), torch.version.cuda)"
+nvidia-smi  # should show model VRAM (e.g. ~16 GB for Llama 8B), not 2 MiB
+```
+
+See `docs/posts/post-01-notes.md` for the full write-up.
+
 ## Why I'm writing this
 
 I'm a senior software engineer with a decade of distributed systems experience, currently working on agentic LLM systems. I want to move deeper into the infrastructure side of AI — and the most honest way to learn it is to build it badly first, then better, in public.

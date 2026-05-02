@@ -9,8 +9,8 @@ inference server (RunPod)
         ▲
         │ HTTP
         │
-vllm benchmark_serving.py  ──▶  benchmarks/results/post-N/*.json
-        (runs locally)
+benchmarks/benchmark.py  ──▶  benchmarks/results/post-N/*.json
+      (runs locally)
                                           │
                                           ▼
                                  scripts/plot_results.py
@@ -19,8 +19,19 @@ vllm benchmark_serving.py  ──▶  benchmarks/results/post-N/*.json
                                  benchmarks/results/post-N/*.svg
 ```
 
-1. Run `vllm benchmark_serving.py` from your laptop against the RunPod server. Save raw JSON output to `benchmarks/results/post-N/`.
+1. Run `benchmarks/benchmark.py` from your laptop against the RunPod server. Save raw JSON output to `benchmarks/results/post-N/`.
 2. Run `scripts/plot_results.py` to convert the JSON files into SVGs. SVGs are saved alongside the raw data and embedded in the post.
+
+Example command (Post 1, RunPod HTTPS proxy):
+```bash
+uv run python benchmarks/benchmark.py \
+    --host <pod-id>.proxy.runpod.net --port 443 --https \
+    --model meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --dataset benchmarks/data/ShareGPT_V3_unfiltered_cleaned_split.json \
+    --num-prompts 200 \
+    --concurrency 1 5 10 20 \
+    --output benchmarks/results/post-01/results.json
+```
 
 ## Conventions
 
