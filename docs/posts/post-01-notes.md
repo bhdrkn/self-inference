@@ -31,6 +31,75 @@
 - [ ] Run `scripts/plot_results.py` against real results, generate final SVGs
 - [ ] Save SVGs to `benchmarks/results/post-01/`
 
+## Benchmark design
+
+### What we're using and why
+
+**Dataset: ShareGPT V3** (`ShareGPT_V3_unfiltered_cleaned_split.json`, ~469 MB, gitignored)
+
+94,145 real conversations scraped from ChatGPT, totalling 702k turns (334k human, 368k assistant). We sample 200 conversations and use only the **first human turn** from each as the prompt. Why first-turn only:
+
+- Multi-turn would inflate prompt token counts with conversation history, making throughput numbers hard to compare across posts
+- We're measuring the serving layer under load, not conversation fidelity
+- The prompt length distribution from first turns is already representative enough to stress the server
+
+Why ShareGPT over synthetic prompts:
+- Realistic prompt length variance — short one-liners and long pastes both appear
+- Reproducible via fixed random seed (`--seed 42`)
+- The same dataset is reused across all posts so benchmark results are directly comparable
+
+**Script: `benchmarks/benchmark.py`**
+
+Custom script rather than the vLLM benchmark tool (`vllm bench serve`), which was deprecated and removed from the CLI. Sends async HTTP requests using `aiohttp`, controls concurrency with a semaphore, collects per-request latency and token counts from the server's `usage` response field.
+
+### How we run it
+
+```bash
+uv run python benchmarks/benchmark.py \
+    --host <pod>.proxy.runpod.net --port 443 --https \
+    --model meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --dataset benchmarks/data/ShareGPT_V3_unfiltered_cleaned_split.json \
+    --num-prompts 200 \
+    --concurrency 1 5 10 20 \
+    --output benchmarks/results/post-01/results.json
+```
+
+- Runs from the laptop against the RunPod pod over HTTPS (RunPod proxy requires it)
+- Each concurrency level sends all 200 prompts with that many in-flight at once
+- Levels run sequentially (not parallel) — one run finishes before the next starts
+- Results saved as a single JSON file per run
+
+For the 1B preview (before 8B access is approved): run concurrency 5 only, save to `results-1b-preview.json`. Full 4-level benchmark runs once with 8B.
+
+### Known limitations of this benchmark design
+
+**Single-turn only.** We use the first human turn from each ShareGPT conversation and discard the rest. This keeps prompt token counts predictable and results comparable across posts, but it has two consequences that matter later:
+
+1. **Post 2 (batching)**: head-of-line blocking is most visible with conversations of varying lengths. Post 2 introduces `--conversation-mode` in the benchmark, which sends accumulated multi-turn history and makes the HOL blocking problem concrete.
+
+2. **Post 4 (prefix routing)**: prefix-aware routing only has something to exploit if requests share common prefixes (same conversation history). Independent first turns have unique prefixes — the routing optimization would be invisible. Post 4's benchmark runs in conversation mode to demonstrate the improvement.
+
+**No response quality check.** The benchmark measures throughput and latency only — it ignores what the model actually outputs. For Posts 1 and 3 (vLLM drop-in) this is fine. **Post 2 is the exception**: static batching introduces attention masks and padding, and incorrect masking can silently corrupt outputs (the model still returns 200 OK with plausible-looking text). Post 2 adds a regression check: run the same prompt solo and batched, confirm outputs match.
+
+### Metrics we collect
+
+| Metric | What it measures |
+|--------|-----------------|
+| `throughput_tokens_per_s` | Completion tokens generated per wall-clock second across all requests — the primary throughput signal |
+| `throughput_requests_per_s` | Requests completed per second — useful for SLA framing |
+| `latency_mean_s` | Mean end-to-end request latency (time-to-last-token for non-streaming) |
+| `latency_p50_s` | Median latency — typical experience |
+| `latency_p90_s` | 90th percentile — what most users see under load |
+| `latency_p99_s` | Tail latency — where the pain shows up as concurrency grows |
+
+**What we're looking for in the results:**
+
+At concurrency 1, the server is a simple wrapper — throughput is bounded by single-sequence generation speed. As concurrency increases, we expect throughput to flatten quickly (no batching) while latency rises sharply. The p99 diverging from p50 is the headline story: requests queue behind each other because `transformers.generate()` is synchronous and the thread pool serializes on the GPU. That's the setup for Post 2.
+
+We're also capturing `nvidia-smi dmon` during the run to show GPU utilization — another way to see the wasted capacity.
+
+---
+
 ## Surprises log
 
 > Anything that didn't behave the way I expected. These are the post's most valuable content — write them down immediately, even half-formed.

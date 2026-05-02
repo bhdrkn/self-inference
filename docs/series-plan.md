@@ -55,9 +55,13 @@ The conceptual post. Earn credibility with a senior-engineer audience by being p
 - Implement static batching on top of `transformers`.
 - Compare throughput vs. Post 1 at the same concurrency levels.
 - Construct a benchmark that demonstrates HOL blocking (mix of short and long requests).
+- **Response quality regression check**: run the same prompt solo and batched, confirm outputs match. Batching with wrong attention masks can silently corrupt outputs — 200 OK with plausible-looking gibberish. This is the one place in the series where correctness needs a guard.
 
 ### Hook for Post 3
 "Static batching helps but creates a new problem. Someone already solved it."
+
+### Conversation thread (starts here)
+Head-of-line blocking is most visible with conversations: a long conversation holds up short ones in the same batch because we pad to the longest sequence in the batch. Introduce a `--conversation-mode` flag in the benchmark that sends multi-turn conversations (accumulated history across turns) instead of independent first turns. Run both modes: single-turn (comparable to Post 1) and conversation mode (reveals HOL blocking). This flag carries forward through Posts 3 and 4.
 
 ---
 
@@ -77,8 +81,12 @@ The post that signals the author looks under the hood. Don't just use vLLM — r
 
 ### Build
 - Replace the Post 2 setup with vLLM.
-- Re-run the same benchmarks. Show the throughput delta.
+- Re-run the same benchmarks (single-turn and conversation mode). Show the throughput delta.
 - Write a short walkthrough of what the scheduler does on each step.
+- **Conversation failure demonstration**: show two concrete failures on the naive/batching stack that vLLM fixes:
+  1. Long conversations OOM — the full KV cache for every active sequence stays in memory simultaneously
+  2. Every turn re-computes the entire conversation history from scratch — no prefix caching means quadratic cost as conversation grows
+  Show vLLM's PagedAttention handling both. This is the "aha" moment for the KV cache story.
 
 ### Hook for Post 4
 "One server is fine. What happens when one server isn't enough?"
@@ -102,6 +110,7 @@ The post most directly relevant to the Anthropic Inference role. Build a router 
   - Prefix-aware (route requests with shared prefixes to the same replica to maximize KV cache reuse)
   - Optional: queue-depth-aware
 - Benchmark: measure cache hit rate and end-to-end latency for each strategy under a realistic prompt distribution.
+- **Conversation thread payoff**: with prefix caching working within a single vLLM instance (Post 3), show that it breaks across instances — routing the same conversation to different replicas means each one builds its own KV cache independently, negating Post 3's gains. Prefix-aware routing fixes this by pinning conversations to the same replica. Run the benchmark in conversation mode to make this visible.
 
 ### Notes on Rust
 Don't gate the post on Rust fluency. Get the Python router working first. If Rust adds clarity (latency budget, predictable memory), rewrite. If it adds friction, ship Python and write a follow-up.
