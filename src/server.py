@@ -98,16 +98,18 @@ def _run_inference(request: ChatCompletionRequest) -> tuple[str, int, int]:
 
     import torch
 
-    inputs = tokenizer.apply_chat_template(
+    # apply_chat_template renders the conversation to a string.
+    # We tokenize separately so we always get a plain tensor, not a BatchEncoding.
+    text = tokenizer.apply_chat_template(
         [m.model_dump() for m in request.messages],
-        return_tensors="pt",
+        tokenize=False,
         add_generation_prompt=True,
-    ).to(device)
-
-    prompt_len = inputs.shape[-1]
+    )
+    inputs = tokenizer(text, return_tensors="pt").to(device)
+    prompt_len = inputs.input_ids.shape[-1]
 
     with torch.no_grad():
-        output = model.generate(inputs, max_new_tokens=request.max_tokens)
+        output = model.generate(inputs.input_ids, max_new_tokens=request.max_tokens)
 
     completion_tokens = output.shape[-1] - prompt_len
     text = tokenizer.decode(output[0][prompt_len:], skip_special_tokens=True)
