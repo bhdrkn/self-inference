@@ -57,10 +57,17 @@ async def lifespan(app: FastAPI):
 
         print(f"Loading {MODEL_NAME} on {device} ({dtype}) ...")
         tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-        model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, dtype=dtype)
-        model = model.to(device)
+        # device_map="auto" loads weights directly onto GPU, avoiding a CPU→GPU copy
+        # which can fail silently for large models. Falls back gracefully on CPU-only.
+        model = AutoModelForCausalLM.from_pretrained(
+            MODEL_NAME,
+            torch_dtype=dtype,
+            device_map="auto" if device == "cuda" else None,
+        )
+        if device == "cpu":
+            model = model.to(device)
         model.eval()
-        print("Model ready.")
+        print(f"Model ready. Device map: {getattr(model, 'hf_device_map', device)}")
 
     yield
 
@@ -105,11 +112,18 @@ def _run_inference(request: ChatCompletionRequest) -> tuple[str, int, int]:
         tokenize=False,
         add_generation_prompt=True,
     )
-    inputs = tokenizer(text, return_tensors="pt").to(device)
+    # Place inputs on the same device as the model's first layer.
+    # With device_map="auto", model.device may be "meta" — use hf_device_map instead.
+    input_device = next(model.parameters()).device
+    inputs = tokenizer(text, return_tensors="pt", padding=False).to(input_device)
     prompt_len = inputs.input_ids.shape[-1]
 
     with torch.no_grad():
-        output = model.generate(inputs.input_ids, max_new_tokens=request.max_tokens)
+        output = model.generate(
+            **inputs,
+            max_new_tokens=request.max_tokens,
+            pad_token_id=tokenizer.eos_token_id,
+        )
 
     completion_tokens = output.shape[-1] - prompt_len
     text = tokenizer.decode(output[0][prompt_len:], skip_special_tokens=True)

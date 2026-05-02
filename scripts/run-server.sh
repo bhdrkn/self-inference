@@ -73,6 +73,11 @@ cd "$WORK_DIR"
 echo ""
 echo "==> Installing Python dependencies..."
 uv sync --group post-01
+
+# uv resolves the latest torch which may be compiled for a newer CUDA than the
+# driver on this pod. Reinstall torch with the wheel that matches CUDA 12.4.
+echo "==> Installing CUDA 12.4-compatible PyTorch..."
+uv pip install torch --index-url https://download.pytorch.org/whl/cu124
 echo "    Done."
 
 # ---------------------------------------------------------------------------
