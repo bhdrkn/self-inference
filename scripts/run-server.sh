@@ -76,9 +76,10 @@ uv sync --group post-01
 
 # uv resolves the latest torch which may be compiled for a newer CUDA than the
 # driver on this pod. Reinstall torch with the wheel that matches CUDA 12.4.
+# Use pip directly (not uv pip) so uv run's implicit sync doesn't overwrite it.
 echo "==> Installing CUDA 12.4-compatible PyTorch..."
-uv pip install torch --index-url https://download.pytorch.org/whl/cu124
-echo "    Done."
+.venv/bin/pip install --quiet "torch" --index-url https://download.pytorch.org/whl/cu124
+echo "    Torch version: $(.venv/bin/python -c 'import torch; print(torch.__version__)')"
 
 # ---------------------------------------------------------------------------
 # Pre-download model weights
@@ -89,7 +90,7 @@ echo "==> Downloading model weights: $MODEL_NAME"
 echo "    This takes 15–25 minutes on first run (~16 GB). Subsequent runs are instant."
 echo ""
 
-uv run --group post-01 python - <<PYEOF
+.venv/bin/python - <<PYEOF
 import os
 from huggingface_hub import snapshot_download
 
@@ -118,8 +119,11 @@ fi
 
 echo ""
 echo "==> Starting inference server..."
-MODEL_NAME="$MODEL_NAME" nohup uv run --group post-01 python src/server.py \
-    > "$LOG_FILE" 2>&1 &
+echo "    MODEL_NAME=$MODEL_NAME"
+# Use .venv/bin/python directly — uv run does an implicit sync which would
+# overwrite our cu124 torch install with the lockfile version.
+nohup env MODEL_NAME="$MODEL_NAME" HF_TOKEN="$HF_TOKEN" \
+    .venv/bin/python src/server.py > "$LOG_FILE" 2>&1 &
 echo $! > "$PID_FILE"
 echo "    PID: $(cat $PID_FILE) | Log: $LOG_FILE"
 
