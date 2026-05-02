@@ -72,14 +72,10 @@ cd "$WORK_DIR"
 
 echo ""
 echo "==> Installing Python dependencies..."
+# torch on Linux is resolved from the pytorch-cu124 index (see pyproject.toml)
+# so uv sync installs the CUDA 12.4-compatible wheel automatically.
 uv sync --group post-01
-
-# uv resolves the latest torch which may be compiled for a newer CUDA than the
-# driver on this pod. Reinstall torch with the wheel that matches CUDA 12.4.
-# Use pip directly (not uv pip) so uv run's implicit sync doesn't overwrite it.
-echo "==> Installing CUDA 12.4-compatible PyTorch..."
-.venv/bin/pip install --quiet "torch" --index-url https://download.pytorch.org/whl/cu124
-echo "    Torch version: $(.venv/bin/python -c 'import torch; print(torch.__version__)')"
+echo "    Torch: $(uv run python -c 'import torch; print(torch.__version__, \"| CUDA:\", torch.cuda.is_available())')"
 
 # ---------------------------------------------------------------------------
 # Pre-download model weights
@@ -90,7 +86,7 @@ echo "==> Downloading model weights: $MODEL_NAME"
 echo "    This takes 15–25 minutes on first run (~16 GB). Subsequent runs are instant."
 echo ""
 
-.venv/bin/python - <<PYEOF
+uv run python - <<PYEOF
 import os
 from huggingface_hub import snapshot_download
 
@@ -120,10 +116,8 @@ fi
 echo ""
 echo "==> Starting inference server..."
 echo "    MODEL_NAME=$MODEL_NAME"
-# Use .venv/bin/python directly — uv run does an implicit sync which would
-# overwrite our cu124 torch install with the lockfile version.
 nohup env MODEL_NAME="$MODEL_NAME" HF_TOKEN="$HF_TOKEN" \
-    .venv/bin/python src/server.py > "$LOG_FILE" 2>&1 &
+    uv run python src/server.py > "$LOG_FILE" 2>&1 &
 echo $! > "$PID_FILE"
 echo "    PID: $(cat $PID_FILE) | Log: $LOG_FILE"
 
