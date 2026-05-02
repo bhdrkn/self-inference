@@ -1,0 +1,26 @@
+{
+  "host": "tp2crvtocnxrv2-8000.proxy.runpod.net",
+  "port": 443,
+  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "num_prompts": 200,
+  "max_tokens": 256,
+  "seed": 42,
+  "results": [
+    {
+      "concurrency": 1,
+      "error": "all requests failed"
+    },
+    {
+      "concurrency": 5,
+      "error": "all requests failed"
+    },
+    {
+      "concurrency": 10,
+      "error": "all requests failed"
+    },
+    {
+      "concurrency": 20,
+      "error": "all requests failed"
+    }
+  ]
+}

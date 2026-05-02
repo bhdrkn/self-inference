@@ -1,0 +1,3952 @@
+{
+  "host": "2ebzz4v0s7dyjv-8000.proxy.runpod.net",
+  "port": 443,
+  "model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "num_prompts": 200,
+  "max_tokens": 256,
+  "seed": 42,
+  "concurrency": 20,
+  "summary": {
+    "num_prompts": 200,
+    "num_successful": 51,
+    "num_failed": 149,
+    "total_time_s": 1239.848,
+    "throughput_tokens_per_s": 7.37,
+    "throughput_requests_per_s": 0.041,
+    "prompt_tokens_total": 18850,
+    "completion_tokens_total": 9139,
+    "latency_mean_s": 101.128,
+    "latency_p50_s": 115.511,
+    "latency_p90_s": 124.264,
+    "latency_p99_s": 124.792
+  },
+  "client_requests": [
+    {
+      "t_start": 0.002,
+      "t_end": 26.42,
+      "latency_s": 26.419,
+      "prompt_tokens": 1484,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.002,
+      "t_end": 81.413,
+      "latency_s": 81.411,
+      "prompt_tokens": 761,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.003,
+      "t_end": 85.712,
+      "latency_s": 85.709,
+      "prompt_tokens": 53,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.003,
+      "t_end": 125.344,
+      "latency_s": 125.341,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 0.003,
+      "t_end": 26.619,
+      "latency_s": 26.616,
+      "prompt_tokens": 193,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.003,
+      "t_end": 113.129,
+      "latency_s": 113.126,
+      "prompt_tokens": 95,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.004,
+      "t_end": 26.42,
+      "latency_s": 26.417,
+      "prompt_tokens": 85,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.004,
+      "t_end": 81.831,
+      "latency_s": 81.827,
+      "prompt_tokens": 760,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.004,
+      "t_end": 53.072,
+      "latency_s": 53.068,
+      "prompt_tokens": 50,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.004,
+      "t_end": 125.345,
+      "latency_s": 125.34,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 0.005,
+      "t_end": 109.985,
+      "latency_s": 109.98,
+      "prompt_tokens": 74,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.005,
+      "t_end": 102.92,
+      "latency_s": 102.915,
+      "prompt_tokens": 56,
+      "completion_tokens": 205,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.005,
+      "t_end": 57.972,
+      "latency_s": 57.967,
+      "prompt_tokens": 43,
+      "completion_tokens": 46,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.005,
+      "t_end": 53.131,
+      "latency_s": 53.126,
+      "prompt_tokens": 99,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.006,
+      "t_end": 53.926,
+      "latency_s": 53.92,
+      "prompt_tokens": 502,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.006,
+      "t_end": 53.159,
+      "latency_s": 53.153,
+      "prompt_tokens": 238,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.006,
+      "t_end": 80.797,
+      "latency_s": 80.791,
+      "prompt_tokens": 60,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.006,
+      "t_end": 26.421,
+      "latency_s": 26.415,
+      "prompt_tokens": 70,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 0.006,
+      "t_end": 125.345,
+      "latency_s": 125.338,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 0.007,
+      "t_end": 109.006,
+      "latency_s": 108.999,
+      "prompt_tokens": 177,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 26.421,
+      "t_end": 141.012,
+      "latency_s": 114.591,
+      "prompt_tokens": 319,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 26.421,
+      "t_end": 151.484,
+      "latency_s": 125.063,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 26.422,
+      "t_end": 151.483,
+      "latency_s": 125.062,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 26.62,
+      "t_end": 151.705,
+      "latency_s": 125.086,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 53.072,
+      "t_end": 178.183,
+      "latency_s": 125.112,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 53.131,
+      "t_end": 165.376,
+      "latency_s": 112.244,
+      "prompt_tokens": 264,
+      "completion_tokens": 221,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 53.159,
+      "t_end": 178.222,
+      "latency_s": 125.063,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 53.926,
+      "t_end": 179.106,
+      "latency_s": 125.181,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 57.972,
+      "t_end": 183.1,
+      "latency_s": 125.128,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 80.797,
+      "t_end": 206.139,
+      "latency_s": 125.342,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 81.413,
+      "t_end": 207.06,
+      "latency_s": 125.646,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 81.831,
+      "t_end": 207.061,
+      "latency_s": 125.23,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 85.712,
+      "t_end": 210.845,
+      "latency_s": 125.133,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 102.92,
+      "t_end": 219.963,
+      "latency_s": 117.043,
+      "prompt_tokens": 44,
+      "completion_tokens": 84,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 109.006,
+      "t_end": 234.046,
+      "latency_s": 125.04,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 109.985,
+      "t_end": 235.031,
+      "latency_s": 125.046,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 113.13,
+      "t_end": 238.554,
+      "latency_s": 125.425,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 125.344,
+      "t_end": 248.841,
+      "latency_s": 123.497,
+      "prompt_tokens": 75,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 125.345,
+      "t_end": 250.696,
+      "latency_s": 125.351,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 125.345,
+      "t_end": 250.695,
+      "latency_s": 125.35,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 141.012,
+      "t_end": 266.359,
+      "latency_s": 125.347,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 151.484,
+      "t_end": 274.997,
+      "latency_s": 123.514,
+      "prompt_tokens": 66,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 151.484,
+      "t_end": 276.544,
+      "latency_s": 125.06,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 151.705,
+      "t_end": 276.758,
+      "latency_s": 125.053,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 165.376,
+      "t_end": 283.972,
+      "latency_s": 118.596,
+      "prompt_tokens": 96,
+      "completion_tokens": 93,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 178.183,
+      "t_end": 302.845,
+      "latency_s": 124.661,
+      "prompt_tokens": 627,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 178.222,
+      "t_end": 303.525,
+      "latency_s": 125.303,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 179.107,
+      "t_end": 304.167,
+      "latency_s": 125.061,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 183.1,
+      "t_end": 308.441,
+      "latency_s": 125.341,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 206.139,
+      "t_end": 329.947,
+      "latency_s": 123.808,
+      "prompt_tokens": 72,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 207.06,
+      "t_end": 324.133,
+      "latency_s": 117.073,
+      "prompt_tokens": 122,
+      "completion_tokens": 4,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 207.061,
+      "t_end": 332.119,
+      "latency_s": 125.058,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 210.845,
+      "t_end": 336.092,
+      "latency_s": 125.247,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 219.963,
+      "t_end": 335.474,
+      "latency_s": 115.511,
+      "prompt_tokens": 43,
+      "completion_tokens": 78,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 234.046,
+      "t_end": 334.861,
+      "latency_s": 100.814,
+      "prompt_tokens": 2759,
+      "completion_tokens": 41,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 235.031,
+      "t_end": 360.36,
+      "latency_s": 125.329,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 238.554,
+      "t_end": 362.818,
+      "latency_s": 124.264,
+      "prompt_tokens": 45,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 248.841,
+      "t_end": 367.425,
+      "latency_s": 118.583,
+      "prompt_tokens": 60,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 250.695,
+      "t_end": 375.751,
+      "latency_s": 125.056,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 250.696,
+      "t_end": 375.779,
+      "latency_s": 125.083,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 266.359,
+      "t_end": 391.697,
+      "latency_s": 125.338,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 274.997,
+      "t_end": 396.919,
+      "latency_s": 121.922,
+      "prompt_tokens": 2968,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 276.544,
+      "t_end": 401.832,
+      "latency_s": 125.288,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 276.759,
+      "t_end": 401.833,
+      "latency_s": 125.074,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 283.972,
+      "t_end": 403.677,
+      "latency_s": 119.705,
+      "prompt_tokens": 848,
+      "completion_tokens": 96,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 302.845,
+      "t_end": 425.181,
+      "latency_s": 122.336,
+      "prompt_tokens": 1136,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 303.525,
+      "t_end": 428.872,
+      "latency_s": 125.347,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 304.167,
+      "t_end": 429.276,
+      "latency_s": 125.109,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 308.441,
+      "t_end": 433.783,
+      "latency_s": 125.342,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 324.134,
+      "t_end": 449.454,
+      "latency_s": 125.321,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 329.947,
+      "t_end": 455.293,
+      "latency_s": 125.346,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 332.119,
+      "t_end": 457.313,
+      "latency_s": 125.194,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 334.861,
+      "t_end": 459.992,
+      "latency_s": 125.131,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 335.474,
+      "t_end": 460.822,
+      "latency_s": 125.348,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 336.092,
+      "t_end": 461.168,
+      "latency_s": 125.076,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 360.36,
+      "t_end": 469.937,
+      "latency_s": 109.577,
+      "prompt_tokens": 53,
+      "completion_tokens": 30,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 362.819,
+      "t_end": 487.941,
+      "latency_s": 125.122,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 367.425,
+      "t_end": 492.483,
+      "latency_s": 125.058,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 375.751,
+      "t_end": 491.393,
+      "latency_s": 115.643,
+      "prompt_tokens": 44,
+      "completion_tokens": 121,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 375.779,
+      "t_end": 500.873,
+      "latency_s": 125.094,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 391.697,
+      "t_end": 517.037,
+      "latency_s": 125.34,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 396.919,
+      "t_end": 522.259,
+      "latency_s": 125.34,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 401.832,
+      "t_end": 527.175,
+      "latency_s": 125.342,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 401.833,
+      "t_end": 527.175,
+      "latency_s": 125.342,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 403.677,
+      "t_end": 528.726,
+      "latency_s": 125.049,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 425.181,
+      "t_end": 550.228,
+      "latency_s": 125.047,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 428.872,
+      "t_end": 553.958,
+      "latency_s": 125.086,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 429.276,
+      "t_end": 554.516,
+      "latency_s": 125.24,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 433.783,
+      "t_end": 559.125,
+      "latency_s": 125.342,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 449.455,
+      "t_end": 554.699,
+      "latency_s": 105.244,
+      "prompt_tokens": 41,
+      "completion_tokens": 12,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 455.294,
+      "t_end": 580.49,
+      "latency_s": 125.197,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 457.313,
+      "t_end": 582.473,
+      "latency_s": 125.16,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 459.992,
+      "t_end": 585.24,
+      "latency_s": 125.248,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 460.822,
+      "t_end": 586.157,
+      "latency_s": 125.335,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 461.168,
+      "t_end": 586.239,
+      "latency_s": 125.071,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 469.937,
+      "t_end": 595.074,
+      "latency_s": 125.137,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 487.941,
+      "t_end": 613.195,
+      "latency_s": 125.254,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 491.394,
+      "t_end": 616.574,
+      "latency_s": 125.18,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 492.483,
+      "t_end": 617.564,
+      "latency_s": 125.081,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 500.874,
+      "t_end": 625.908,
+      "latency_s": 125.035,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 517.037,
+      "t_end": 642.381,
+      "latency_s": 125.344,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 522.259,
+      "t_end": 647.603,
+      "latency_s": 125.344,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 527.175,
+      "t_end": 652.516,
+      "latency_s": 125.342,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 527.175,
+      "t_end": 652.531,
+      "latency_s": 125.356,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 528.726,
+      "t_end": 654.047,
+      "latency_s": 125.321,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 550.228,
+      "t_end": 675.558,
+      "latency_s": 125.33,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 553.958,
+      "t_end": 670.643,
+      "latency_s": 116.685,
+      "prompt_tokens": 40,
+      "completion_tokens": 32,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 554.517,
+      "t_end": 679.859,
+      "latency_s": 125.342,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 554.699,
+      "t_end": 679.859,
+      "latency_s": 125.16,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 559.125,
+      "t_end": 684.179,
+      "latency_s": 125.053,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 580.49,
+      "t_end": 705.666,
+      "latency_s": 125.176,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 582.474,
+      "t_end": 707.816,
+      "latency_s": 125.342,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 585.24,
+      "t_end": 710.299,
+      "latency_s": 125.059,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 586.158,
+      "t_end": 711.501,
+      "latency_s": 125.343,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 586.239,
+      "t_end": 711.502,
+      "latency_s": 125.262,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 595.074,
+      "t_end": 720.416,
+      "latency_s": 125.341,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 613.196,
+      "t_end": 727.859,
+      "latency_s": 114.663,
+      "prompt_tokens": 55,
+      "completion_tokens": 44,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 616.574,
+      "t_end": 741.914,
+      "latency_s": 125.34,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 617.564,
+      "t_end": 742.648,
+      "latency_s": 125.084,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 625.908,
+      "t_end": 750.984,
+      "latency_s": 125.076,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 642.381,
+      "t_end": 765.263,
+      "latency_s": 122.882,
+      "prompt_tokens": 378,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 647.603,
+      "t_end": 772.669,
+      "latency_s": 125.067,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 652.516,
+      "t_end": 777.863,
+      "latency_s": 125.347,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 652.531,
+      "t_end": 777.862,
+      "latency_s": 125.331,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 654.048,
+      "t_end": 779.395,
+      "latency_s": 125.348,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 670.643,
+      "t_end": 795.984,
+      "latency_s": 125.341,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 675.558,
+      "t_end": 800.621,
+      "latency_s": 125.064,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 679.859,
+      "t_end": 804.922,
+      "latency_s": 125.063,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 679.86,
+      "t_end": 804.926,
+      "latency_s": 125.066,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 684.179,
+      "t_end": 809.501,
+      "latency_s": 125.323,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 705.666,
+      "t_end": 830.736,
+      "latency_s": 125.07,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 707.816,
+      "t_end": 832.876,
+      "latency_s": 125.059,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 710.299,
+      "t_end": 835.409,
+      "latency_s": 125.11,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 711.501,
+      "t_end": 836.563,
+      "latency_s": 125.062,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 711.502,
+      "t_end": 836.57,
+      "latency_s": 125.068,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 720.416,
+      "t_end": 845.68,
+      "latency_s": 125.264,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 727.859,
+      "t_end": 853.126,
+      "latency_s": 125.267,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 741.914,
+      "t_end": 866.997,
+      "latency_s": 125.083,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 742.648,
+      "t_end": 866.95,
+      "latency_s": 124.302,
+      "prompt_tokens": 55,
+      "completion_tokens": 34,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 750.984,
+      "t_end": 876.165,
+      "latency_s": 125.181,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 765.263,
+      "t_end": 890.604,
+      "latency_s": 125.341,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 772.67,
+      "t_end": 897.978,
+      "latency_s": 125.308,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 777.863,
+      "t_end": 903.201,
+      "latency_s": 125.338,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 777.863,
+      "t_end": 903.202,
+      "latency_s": 125.338,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 779.395,
+      "t_end": 904.444,
+      "latency_s": 125.048,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 795.984,
+      "t_end": 921.22,
+      "latency_s": 125.236,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 800.622,
+      "t_end": 925.935,
+      "latency_s": 125.314,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 804.922,
+      "t_end": 930.236,
+      "latency_s": 125.314,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 804.926,
+      "t_end": 930.235,
+      "latency_s": 125.309,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 809.501,
+      "t_end": 934.57,
+      "latency_s": 125.068,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 830.737,
+      "t_end": 956.043,
+      "latency_s": 125.306,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 832.876,
+      "t_end": 957.906,
+      "latency_s": 125.03,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 835.409,
+      "t_end": 960.489,
+      "latency_s": 125.08,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 836.563,
+      "t_end": 961.599,
+      "latency_s": 125.036,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 836.57,
+      "t_end": 961.599,
+      "latency_s": 125.029,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 845.68,
+      "t_end": 970.788,
+      "latency_s": 125.108,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 853.126,
+      "t_end": 978.467,
+      "latency_s": 125.341,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 866.95,
+      "t_end": 992.05,
+      "latency_s": 125.1,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 866.997,
+      "t_end": 992.066,
+      "latency_s": 125.069,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 876.165,
+      "t_end": 1001.235,
+      "latency_s": 125.069,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 890.605,
+      "t_end": 1013.489,
+      "latency_s": 122.885,
+      "prompt_tokens": 37,
+      "completion_tokens": 8,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 897.978,
+      "t_end": 1023.029,
+      "latency_s": 125.051,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 903.201,
+      "t_end": 1028.552,
+      "latency_s": 125.351,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 903.202,
+      "t_end": 1028.552,
+      "latency_s": 125.35,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 904.444,
+      "t_end": 1029.772,
+      "latency_s": 125.329,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 921.22,
+      "t_end": 1046.362,
+      "latency_s": 125.142,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 925.936,
+      "t_end": 1051.076,
+      "latency_s": 125.14,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 930.236,
+      "t_end": 1055.885,
+      "latency_s": 125.65,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 930.236,
+      "t_end": 1055.885,
+      "latency_s": 125.649,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 934.57,
+      "t_end": 1059.879,
+      "latency_s": 125.31,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 956.043,
+      "t_end": 1081.178,
+      "latency_s": 125.135,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 957.906,
+      "t_end": 1082.982,
+      "latency_s": 125.076,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 960.489,
+      "t_end": 1085.58,
+      "latency_s": 125.092,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 961.6,
+      "t_end": 1086.708,
+      "latency_s": 125.109,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 961.6,
+      "t_end": 1086.709,
+      "latency_s": 125.11,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 970.788,
+      "t_end": 1096.129,
+      "latency_s": 125.341,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 978.467,
+      "t_end": 1103.604,
+      "latency_s": 125.137,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 992.05,
+      "t_end": 1114.677,
+      "latency_s": 122.627,
+      "prompt_tokens": 39,
+      "completion_tokens": 23,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 992.066,
+      "t_end": 1112.103,
+      "latency_s": 120.037,
+      "prompt_tokens": 44,
+      "completion_tokens": 20,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 1001.235,
+      "t_end": 1114.761,
+      "latency_s": 113.526,
+      "prompt_tokens": 1956,
+      "completion_tokens": 3,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 1013.489,
+      "t_end": 1138.626,
+      "latency_s": 125.137,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1023.03,
+      "t_end": 1143.543,
+      "latency_s": 120.514,
+      "prompt_tokens": 60,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 1028.552,
+      "t_end": 1126.067,
+      "latency_s": 97.515,
+      "prompt_tokens": 43,
+      "completion_tokens": 8,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 1028.553,
+      "t_end": 1153.476,
+      "latency_s": 124.923,
+      "prompt_tokens": 713,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 1029.772,
+      "t_end": 1154.852,
+      "latency_s": 125.079,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1046.362,
+      "t_end": 1170.883,
+      "latency_s": 124.521,
+      "prompt_tokens": 322,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 1051.076,
+      "t_end": 1171.168,
+      "latency_s": 120.092,
+      "prompt_tokens": 70,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 1055.885,
+      "t_end": 1180.964,
+      "latency_s": 125.079,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1055.886,
+      "t_end": 1180.366,
+      "latency_s": 124.481,
+      "prompt_tokens": 46,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 1059.88,
+      "t_end": 1185.015,
+      "latency_s": 125.136,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1081.178,
+      "t_end": 1198.56,
+      "latency_s": 117.382,
+      "prompt_tokens": 510,
+      "completion_tokens": 256,
+      "success": true,
+      "error": ""
+    },
+    {
+      "t_start": 1082.982,
+      "t_end": 1208.159,
+      "latency_s": 125.177,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1085.581,
+      "t_end": 1210.792,
+      "latency_s": 125.212,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1086.709,
+      "t_end": 1211.852,
+      "latency_s": 125.143,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1086.71,
+      "t_end": 1211.852,
+      "latency_s": 125.142,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1096.129,
+      "t_end": 1221.265,
+      "latency_s": 125.136,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1103.604,
+      "t_end": 1228.746,
+      "latency_s": 125.142,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1112.104,
+      "t_end": 1237.24,
+      "latency_s": 125.137,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1114.677,
+      "t_end": 1239.743,
+      "latency_s": 125.066,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    },
+    {
+      "t_start": 1114.761,
+      "t_end": 1239.848,
+      "latency_s": 125.087,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "success": false,
+      "error": "524, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://2ebzz4v0s7dyjv-8000.proxy.runpod.net/v1/chat/completions'"
+    }
+  ],
+  "server_requests": [
+    {
+      "t_start": 0.382,
+      "t_end": 26.419,
+      "latency_s": 26.037,
+      "prompt_tokens": 1484,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 0.5,
+      "t_end": 26.531,
+      "latency_s": 26.031,
+      "prompt_tokens": 85,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 0.608,
+      "t_end": 26.651,
+      "latency_s": 26.043,
+      "prompt_tokens": 70,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 0.631,
+      "t_end": 26.851,
+      "latency_s": 26.22,
+      "prompt_tokens": 193,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 26.42,
+      "t_end": 53.307,
+      "latency_s": 26.887,
+      "prompt_tokens": 50,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 26.651,
+      "t_end": 53.37,
+      "latency_s": 26.719,
+      "prompt_tokens": 99,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 26.531,
+      "t_end": 53.386,
+      "latency_s": 26.855,
+      "prompt_tokens": 238,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 26.852,
+      "t_end": 54.163,
+      "latency_s": 27.311,
+      "prompt_tokens": 502,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 53.307,
+      "t_end": 58.192,
+      "latency_s": 4.885,
+      "prompt_tokens": 43,
+      "completion_tokens": 46
+    },
+    {
+      "t_start": 53.37,
+      "t_end": 80.984,
+      "latency_s": 27.614,
+      "prompt_tokens": 60,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 53.386,
+      "t_end": 81.569,
+      "latency_s": 28.183,
+      "prompt_tokens": 761,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 54.163,
+      "t_end": 82.054,
+      "latency_s": 27.891,
+      "prompt_tokens": 760,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 58.192,
+      "t_end": 85.897,
+      "latency_s": 27.705,
+      "prompt_tokens": 53,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 80.984,
+      "t_end": 103.03,
+      "latency_s": 22.046,
+      "prompt_tokens": 56,
+      "completion_tokens": 205
+    },
+    {
+      "t_start": 81.57,
+      "t_end": 109.238,
+      "latency_s": 27.668,
+      "prompt_tokens": 177,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 82.054,
+      "t_end": 109.916,
+      "latency_s": 27.862,
+      "prompt_tokens": 74,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 85.897,
+      "t_end": 113.359,
+      "latency_s": 27.462,
+      "prompt_tokens": 95,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 103.03,
+      "t_end": 130.985,
+      "latency_s": 27.955,
+      "prompt_tokens": 53,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 109.238,
+      "t_end": 137.084,
+      "latency_s": 27.846,
+      "prompt_tokens": 68,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 109.917,
+      "t_end": 137.444,
+      "latency_s": 27.527,
+      "prompt_tokens": 1722,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 113.359,
+      "t_end": 141.048,
+      "latency_s": 27.689,
+      "prompt_tokens": 319,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 130.985,
+      "t_end": 158.603,
+      "latency_s": 27.618,
+      "prompt_tokens": 931,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 137.084,
+      "t_end": 165.15,
+      "latency_s": 28.066,
+      "prompt_tokens": 55,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 137.444,
+      "t_end": 165.215,
+      "latency_s": 27.771,
+      "prompt_tokens": 48,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 141.049,
+      "t_end": 165.599,
+      "latency_s": 24.55,
+      "prompt_tokens": 264,
+      "completion_tokens": 221
+    },
+    {
+      "t_start": 158.604,
+      "t_end": 187.946,
+      "latency_s": 29.342,
+      "prompt_tokens": 48,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 165.6,
+      "t_end": 193.962,
+      "latency_s": 28.362,
+      "prompt_tokens": 45,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 165.15,
+      "t_end": 193.98,
+      "latency_s": 28.83,
+      "prompt_tokens": 396,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 165.215,
+      "t_end": 194.346,
+      "latency_s": 29.131,
+      "prompt_tokens": 62,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 193.98,
+      "t_end": 210.368,
+      "latency_s": 16.388,
+      "prompt_tokens": 249,
+      "completion_tokens": 147
+    },
+    {
+      "t_start": 187.946,
+      "t_end": 217.347,
+      "latency_s": 29.401,
+      "prompt_tokens": 46,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 210.368,
+      "t_end": 220.079,
+      "latency_s": 9.711,
+      "prompt_tokens": 44,
+      "completion_tokens": 84
+    },
+    {
+      "t_start": 193.962,
+      "t_end": 222.444,
+      "latency_s": 28.482,
+      "prompt_tokens": 477,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 194.347,
+      "t_end": 223.593,
+      "latency_s": 29.246,
+      "prompt_tokens": 44,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 217.347,
+      "t_end": 243.574,
+      "latency_s": 26.227,
+      "prompt_tokens": 3093,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 220.079,
+      "t_end": 246.104,
+      "latency_s": 26.025,
+      "prompt_tokens": 45,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 222.444,
+      "t_end": 248.274,
+      "latency_s": 25.83,
+      "prompt_tokens": 1486,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 223.594,
+      "t_end": 248.839,
+      "latency_s": 25.245,
+      "prompt_tokens": 75,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 243.574,
+      "t_end": 269.643,
+      "latency_s": 26.069,
+      "prompt_tokens": 651,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 246.104,
+      "t_end": 271.87,
+      "latency_s": 25.766,
+      "prompt_tokens": 44,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 248.274,
+      "t_end": 274.541,
+      "latency_s": 26.267,
+      "prompt_tokens": 38,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 248.839,
+      "t_end": 275.226,
+      "latency_s": 26.387,
+      "prompt_tokens": 66,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 274.541,
+      "t_end": 284.012,
+      "latency_s": 9.471,
+      "prompt_tokens": 96,
+      "completion_tokens": 93
+    },
+    {
+      "t_start": 269.643,
+      "t_end": 296.559,
+      "latency_s": 26.916,
+      "prompt_tokens": 130,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 271.871,
+      "t_end": 299.397,
+      "latency_s": 27.526,
+      "prompt_tokens": 147,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 275.226,
+      "t_end": 302.992,
+      "latency_s": 27.766,
+      "prompt_tokens": 627,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 284.012,
+      "t_end": 311.099,
+      "latency_s": 27.087,
+      "prompt_tokens": 626,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 296.559,
+      "t_end": 323.95,
+      "latency_s": 27.391,
+      "prompt_tokens": 117,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 323.95,
+      "t_end": 324.36,
+      "latency_s": 0.41,
+      "prompt_tokens": 122,
+      "completion_tokens": 4
+    },
+    {
+      "t_start": 299.397,
+      "t_end": 326.7,
+      "latency_s": 27.303,
+      "prompt_tokens": 73,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 302.992,
+      "t_end": 330.076,
+      "latency_s": 27.084,
+      "prompt_tokens": 72,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 330.076,
+      "t_end": 335.037,
+      "latency_s": 4.961,
+      "prompt_tokens": 2759,
+      "completion_tokens": 41
+    },
+    {
+      "t_start": 326.7,
+      "t_end": 335.537,
+      "latency_s": 8.837,
+      "prompt_tokens": 43,
+      "completion_tokens": 78
+    },
+    {
+      "t_start": 311.099,
+      "t_end": 338.782,
+      "latency_s": 27.683,
+      "prompt_tokens": 67,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 324.361,
+      "t_end": 352.737,
+      "latency_s": 28.376,
+      "prompt_tokens": 587,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 335.038,
+      "t_end": 362.702,
+      "latency_s": 27.664,
+      "prompt_tokens": 53,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 335.537,
+      "t_end": 363.009,
+      "latency_s": 27.472,
+      "prompt_tokens": 45,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 338.783,
+      "t_end": 367.58,
+      "latency_s": 28.797,
+      "prompt_tokens": 60,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 352.737,
+      "t_end": 382.045,
+      "latency_s": 29.308,
+      "prompt_tokens": 452,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 362.702,
+      "t_end": 392.144,
+      "latency_s": 29.442,
+      "prompt_tokens": 70,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 363.01,
+      "t_end": 392.823,
+      "latency_s": 29.813,
+      "prompt_tokens": 1048,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 367.58,
+      "t_end": 396.965,
+      "latency_s": 29.385,
+      "prompt_tokens": 2968,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 392.823,
+      "t_end": 403.686,
+      "latency_s": 10.863,
+      "prompt_tokens": 848,
+      "completion_tokens": 96
+    },
+    {
+      "t_start": 382.045,
+      "t_end": 410.898,
+      "latency_s": 28.853,
+      "prompt_tokens": 1317,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 392.145,
+      "t_end": 420.835,
+      "latency_s": 28.69,
+      "prompt_tokens": 47,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 396.965,
+      "t_end": 425.189,
+      "latency_s": 28.224,
+      "prompt_tokens": 1136,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 403.686,
+      "t_end": 431.36,
+      "latency_s": 27.674,
+      "prompt_tokens": 174,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 410.899,
+      "t_end": 439.531,
+      "latency_s": 28.632,
+      "prompt_tokens": 450,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 420.835,
+      "t_end": 449.898,
+      "latency_s": 29.063,
+      "prompt_tokens": 63,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 425.19,
+      "t_end": 453.979,
+      "latency_s": 28.789,
+      "prompt_tokens": 144,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 431.36,
+      "t_end": 459.688,
+      "latency_s": 28.328,
+      "prompt_tokens": 840,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 439.532,
+      "t_end": 467.267,
+      "latency_s": 27.735,
+      "prompt_tokens": 58,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 467.267,
+      "t_end": 469.941,
+      "latency_s": 2.674,
+      "prompt_tokens": 53,
+      "completion_tokens": 30
+    },
+    {
+      "t_start": 449.899,
+      "t_end": 475.235,
+      "latency_s": 25.336,
+      "prompt_tokens": 59,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 453.979,
+      "t_end": 479.468,
+      "latency_s": 25.489,
+      "prompt_tokens": 50,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 459.688,
+      "t_end": 485.084,
+      "latency_s": 25.396,
+      "prompt_tokens": 42,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 479.468,
+      "t_end": 491.617,
+      "latency_s": 12.149,
+      "prompt_tokens": 44,
+      "completion_tokens": 121
+    },
+    {
+      "t_start": 469.941,
+      "t_end": 495.868,
+      "latency_s": 25.927,
+      "prompt_tokens": 73,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 475.235,
+      "t_end": 501.271,
+      "latency_s": 26.036,
+      "prompt_tokens": 45,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 485.084,
+      "t_end": 512.028,
+      "latency_s": 26.944,
+      "prompt_tokens": 45,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 491.617,
+      "t_end": 519.52,
+      "latency_s": 27.903,
+      "prompt_tokens": 1281,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 495.869,
+      "t_end": 523.947,
+      "latency_s": 28.078,
+      "prompt_tokens": 1233,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 501.271,
+      "t_end": 529.878,
+      "latency_s": 28.607,
+      "prompt_tokens": 55,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 512.029,
+      "t_end": 541.123,
+      "latency_s": 29.094,
+      "prompt_tokens": 137,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 519.52,
+      "t_end": 548.934,
+      "latency_s": 29.414,
+      "prompt_tokens": 51,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 523.947,
+      "t_end": 553.556,
+      "latency_s": 29.609,
+      "prompt_tokens": 199,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 553.556,
+      "t_end": 554.915,
+      "latency_s": 1.359,
+      "prompt_tokens": 41,
+      "completion_tokens": 12
+    },
+    {
+      "t_start": 529.878,
+      "t_end": 559.108,
+      "latency_s": 29.23,
+      "prompt_tokens": 100,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 541.123,
+      "t_end": 570.25,
+      "latency_s": 29.127,
+      "prompt_tokens": 60,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 548.934,
+      "t_end": 573.397,
+      "latency_s": 24.463,
+      "prompt_tokens": 42,
+      "completion_tokens": 219
+    },
+    {
+      "t_start": 554.915,
+      "t_end": 582.414,
+      "latency_s": 27.499,
+      "prompt_tokens": 51,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 559.108,
+      "t_end": 586.259,
+      "latency_s": 27.151,
+      "prompt_tokens": 47,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 570.25,
+      "t_end": 598.59,
+      "latency_s": 28.34,
+      "prompt_tokens": 57,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 573.397,
+      "t_end": 600.66,
+      "latency_s": 27.263,
+      "prompt_tokens": 326,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 582.414,
+      "t_end": 610.839,
+      "latency_s": 28.425,
+      "prompt_tokens": 74,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 586.259,
+      "t_end": 614.478,
+      "latency_s": 28.219,
+      "prompt_tokens": 354,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 598.59,
+      "t_end": 626.786,
+      "latency_s": 28.196,
+      "prompt_tokens": 446,
+      "completion_tokens": 253
+    },
+    {
+      "t_start": 600.66,
+      "t_end": 629.033,
+      "latency_s": 28.373,
+      "prompt_tokens": 55,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 610.839,
+      "t_end": 639.139,
+      "latency_s": 28.3,
+      "prompt_tokens": 55,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 614.478,
+      "t_end": 643.236,
+      "latency_s": 28.758,
+      "prompt_tokens": 46,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 626.786,
+      "t_end": 655.922,
+      "latency_s": 29.136,
+      "prompt_tokens": 81,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 629.033,
+      "t_end": 657.837,
+      "latency_s": 28.804,
+      "prompt_tokens": 302,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 639.139,
+      "t_end": 667.372,
+      "latency_s": 28.233,
+      "prompt_tokens": 63,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 667.372,
+      "t_end": 670.752,
+      "latency_s": 3.38,
+      "prompt_tokens": 40,
+      "completion_tokens": 32
+    },
+    {
+      "t_start": 643.236,
+      "t_end": 671.401,
+      "latency_s": 28.165,
+      "prompt_tokens": 661,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 655.923,
+      "t_end": 682.804,
+      "latency_s": 26.881,
+      "prompt_tokens": 49,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 657.837,
+      "t_end": 684.229,
+      "latency_s": 26.392,
+      "prompt_tokens": 45,
+      "completion_tokens": 249
+    },
+    {
+      "t_start": 670.752,
+      "t_end": 697.283,
+      "latency_s": 26.531,
+      "prompt_tokens": 137,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 671.401,
+      "t_end": 698.196,
+      "latency_s": 26.795,
+      "prompt_tokens": 47,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 682.804,
+      "t_end": 708.942,
+      "latency_s": 26.138,
+      "prompt_tokens": 472,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 684.229,
+      "t_end": 710.804,
+      "latency_s": 26.575,
+      "prompt_tokens": 56,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 697.284,
+      "t_end": 722.924,
+      "latency_s": 25.64,
+      "prompt_tokens": 196,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 722.925,
+      "t_end": 723.323,
+      "latency_s": 0.398,
+      "prompt_tokens": 244,
+      "completion_tokens": 4
+    },
+    {
+      "t_start": 698.196,
+      "t_end": 724.332,
+      "latency_s": 26.136,
+      "prompt_tokens": 561,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 723.323,
+      "t_end": 727.946,
+      "latency_s": 4.623,
+      "prompt_tokens": 55,
+      "completion_tokens": 44
+    },
+    {
+      "t_start": 708.942,
+      "t_end": 735.454,
+      "latency_s": 26.512,
+      "prompt_tokens": 50,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 710.805,
+      "t_end": 737.548,
+      "latency_s": 26.743,
+      "prompt_tokens": 46,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 724.332,
+      "t_end": 751.488,
+      "latency_s": 27.156,
+      "prompt_tokens": 190,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 727.946,
+      "t_end": 755.132,
+      "latency_s": 27.186,
+      "prompt_tokens": 429,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 735.454,
+      "t_end": 762.441,
+      "latency_s": 26.987,
+      "prompt_tokens": 53,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 737.548,
+      "t_end": 764.957,
+      "latency_s": 27.409,
+      "prompt_tokens": 378,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 751.488,
+      "t_end": 778.438,
+      "latency_s": 26.95,
+      "prompt_tokens": 65,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 755.132,
+      "t_end": 782.139,
+      "latency_s": 27.007,
+      "prompt_tokens": 79,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 762.441,
+      "t_end": 789.671,
+      "latency_s": 27.23,
+      "prompt_tokens": 464,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 764.957,
+      "t_end": 791.825,
+      "latency_s": 26.868,
+      "prompt_tokens": 43,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 778.439,
+      "t_end": 805.656,
+      "latency_s": 27.217,
+      "prompt_tokens": 1799,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 782.139,
+      "t_end": 809.097,
+      "latency_s": 26.958,
+      "prompt_tokens": 47,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 789.671,
+      "t_end": 816.522,
+      "latency_s": 26.851,
+      "prompt_tokens": 348,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 791.825,
+      "t_end": 818.297,
+      "latency_s": 26.472,
+      "prompt_tokens": 50,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 805.656,
+      "t_end": 833.144,
+      "latency_s": 27.488,
+      "prompt_tokens": 88,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 809.097,
+      "t_end": 836.72,
+      "latency_s": 27.623,
+      "prompt_tokens": 47,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 816.522,
+      "t_end": 844.679,
+      "latency_s": 28.157,
+      "prompt_tokens": 153,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 818.297,
+      "t_end": 845.995,
+      "latency_s": 27.698,
+      "prompt_tokens": 53,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 833.144,
+      "t_end": 860.141,
+      "latency_s": 26.997,
+      "prompt_tokens": 57,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 836.72,
+      "t_end": 863.392,
+      "latency_s": 26.672,
+      "prompt_tokens": 53,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 863.392,
+      "t_end": 866.876,
+      "latency_s": 3.484,
+      "prompt_tokens": 55,
+      "completion_tokens": 34
+    },
+    {
+      "t_start": 844.68,
+      "t_end": 871.703,
+      "latency_s": 27.023,
+      "prompt_tokens": 80,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 845.996,
+      "t_end": 873.161,
+      "latency_s": 27.165,
+      "prompt_tokens": 106,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 860.142,
+      "t_end": 887.922,
+      "latency_s": 27.78,
+      "prompt_tokens": 40,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 866.877,
+      "t_end": 894.444,
+      "latency_s": 27.567,
+      "prompt_tokens": 524,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 871.703,
+      "t_end": 899.678,
+      "latency_s": 27.975,
+      "prompt_tokens": 43,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 873.161,
+      "t_end": 900.074,
+      "latency_s": 26.913,
+      "prompt_tokens": 48,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 887.922,
+      "t_end": 915.64,
+      "latency_s": 27.718,
+      "prompt_tokens": 57,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 894.444,
+      "t_end": 922.094,
+      "latency_s": 27.65,
+      "prompt_tokens": 123,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 899.678,
+      "t_end": 927.548,
+      "latency_s": 27.87,
+      "prompt_tokens": 73,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 900.074,
+      "t_end": 927.967,
+      "latency_s": 27.893,
+      "prompt_tokens": 43,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 915.64,
+      "t_end": 944.007,
+      "latency_s": 28.367,
+      "prompt_tokens": 42,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 922.094,
+      "t_end": 950.286,
+      "latency_s": 28.192,
+      "prompt_tokens": 75,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 927.548,
+      "t_end": 955.287,
+      "latency_s": 27.739,
+      "prompt_tokens": 51,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 927.967,
+      "t_end": 955.695,
+      "latency_s": 27.728,
+      "prompt_tokens": 51,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 944.007,
+      "t_end": 972.337,
+      "latency_s": 28.33,
+      "prompt_tokens": 47,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 950.286,
+      "t_end": 978.615,
+      "latency_s": 28.329,
+      "prompt_tokens": 57,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 955.288,
+      "t_end": 983.943,
+      "latency_s": 28.655,
+      "prompt_tokens": 1309,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 955.695,
+      "t_end": 984.182,
+      "latency_s": 28.487,
+      "prompt_tokens": 138,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 972.338,
+      "t_end": 986.333,
+      "latency_s": 13.995,
+      "prompt_tokens": 61,
+      "completion_tokens": 127
+    },
+    {
+      "t_start": 978.615,
+      "t_end": 1006.667,
+      "latency_s": 28.052,
+      "prompt_tokens": 39,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 983.943,
+      "t_end": 1012.717,
+      "latency_s": 28.774,
+      "prompt_tokens": 50,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 984.182,
+      "t_end": 1012.774,
+      "latency_s": 28.592,
+      "prompt_tokens": 57,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1012.717,
+      "t_end": 1013.634,
+      "latency_s": 0.917,
+      "prompt_tokens": 37,
+      "completion_tokens": 8
+    },
+    {
+      "t_start": 986.333,
+      "t_end": 1014.872,
+      "latency_s": 28.539,
+      "prompt_tokens": 61,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1006.667,
+      "t_end": 1035.266,
+      "latency_s": 28.599,
+      "prompt_tokens": 611,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1012.774,
+      "t_end": 1038.728,
+      "latency_s": 25.954,
+      "prompt_tokens": 67,
+      "completion_tokens": 240
+    },
+    {
+      "t_start": 1035.266,
+      "t_end": 1040.531,
+      "latency_s": 5.265,
+      "prompt_tokens": 38,
+      "completion_tokens": 50
+    },
+    {
+      "t_start": 1013.634,
+      "t_end": 1041.526,
+      "latency_s": 27.892,
+      "prompt_tokens": 41,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1014.872,
+      "t_end": 1043.456,
+      "latency_s": 28.584,
+      "prompt_tokens": 143,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1041.527,
+      "t_end": 1057.18,
+      "latency_s": 15.653,
+      "prompt_tokens": 67,
+      "completion_tokens": 142
+    },
+    {
+      "t_start": 1038.728,
+      "t_end": 1067.021,
+      "latency_s": 28.293,
+      "prompt_tokens": 66,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1040.531,
+      "t_end": 1068.796,
+      "latency_s": 28.265,
+      "prompt_tokens": 1750,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1043.456,
+      "t_end": 1072.418,
+      "latency_s": 28.962,
+      "prompt_tokens": 48,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1067.021,
+      "t_end": 1081.492,
+      "latency_s": 14.471,
+      "prompt_tokens": 97,
+      "completion_tokens": 128
+    },
+    {
+      "t_start": 1057.18,
+      "t_end": 1085.844,
+      "latency_s": 28.664,
+      "prompt_tokens": 1716,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1068.797,
+      "t_end": 1096.635,
+      "latency_s": 27.838,
+      "prompt_tokens": 3190,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1072.418,
+      "t_end": 1100.813,
+      "latency_s": 28.395,
+      "prompt_tokens": 43,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1081.492,
+      "t_end": 1109.788,
+      "latency_s": 28.296,
+      "prompt_tokens": 55,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1109.788,
+      "t_end": 1112.132,
+      "latency_s": 2.344,
+      "prompt_tokens": 44,
+      "completion_tokens": 20
+    },
+    {
+      "t_start": 1085.844,
+      "t_end": 1114.474,
+      "latency_s": 28.63,
+      "prompt_tokens": 617,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1112.132,
+      "t_end": 1114.874,
+      "latency_s": 2.742,
+      "prompt_tokens": 39,
+      "completion_tokens": 23
+    },
+    {
+      "t_start": 1114.475,
+      "t_end": 1114.963,
+      "latency_s": 0.488,
+      "prompt_tokens": 1956,
+      "completion_tokens": 3
+    },
+    {
+      "t_start": 1096.635,
+      "t_end": 1125.3,
+      "latency_s": 28.665,
+      "prompt_tokens": 922,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1125.3,
+      "t_end": 1126.182,
+      "latency_s": 0.882,
+      "prompt_tokens": 43,
+      "completion_tokens": 8
+    },
+    {
+      "t_start": 1100.814,
+      "t_end": 1129.275,
+      "latency_s": 28.461,
+      "prompt_tokens": 43,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1114.875,
+      "t_end": 1143.391,
+      "latency_s": 28.516,
+      "prompt_tokens": 63,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1114.963,
+      "t_end": 1143.714,
+      "latency_s": 28.751,
+      "prompt_tokens": 60,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1126.182,
+      "t_end": 1153.595,
+      "latency_s": 27.413,
+      "prompt_tokens": 713,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1129.276,
+      "t_end": 1156.993,
+      "latency_s": 27.717,
+      "prompt_tokens": 48,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1143.391,
+      "t_end": 1170.945,
+      "latency_s": 27.554,
+      "prompt_tokens": 322,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1143.715,
+      "t_end": 1171.365,
+      "latency_s": 27.65,
+      "prompt_tokens": 70,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1153.595,
+      "t_end": 1180.567,
+      "latency_s": 26.972,
+      "prompt_tokens": 46,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1156.993,
+      "t_end": 1183.482,
+      "latency_s": 26.489,
+      "prompt_tokens": 68,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1170.945,
+      "t_end": 1197.875,
+      "latency_s": 26.93,
+      "prompt_tokens": 81,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1171.365,
+      "t_end": 1198.754,
+      "latency_s": 27.389,
+      "prompt_tokens": 510,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1180.567,
+      "t_end": 1208.707,
+      "latency_s": 28.14,
+      "prompt_tokens": 46,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1183.482,
+      "t_end": 1211.637,
+      "latency_s": 28.155,
+      "prompt_tokens": 94,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1198.754,
+      "t_end": 1217.117,
+      "latency_s": 18.363,
+      "prompt_tokens": 44,
+      "completion_tokens": 163
+    },
+    {
+      "t_start": 1197.876,
+      "t_end": 1226.777,
+      "latency_s": 28.901,
+      "prompt_tokens": 48,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1208.707,
+      "t_end": 1237.208,
+      "latency_s": 28.501,
+      "prompt_tokens": 79,
+      "completion_tokens": 256
+    },
+    {
+      "t_start": 1211.637,
+      "t_end": 1240.243,
+      "latency_s": 28.606,
+      "prompt_tokens": 3536,
+      "completion_tokens": 256
+    }
+  ],
+  "gpu_samples": [
+    {
+      "t": 4.448,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 14.482,
+      "utilization_pct": 75,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 24.515,
+      "utilization_pct": 99,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 34.563,
+      "utilization_pct": 70,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 44.611,
+      "utilization_pct": 68,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 54.656,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 64.702,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 74.734,
+      "utilization_pct": 84,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 84.765,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 94.908,
+      "utilization_pct": 79,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 104.94,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 114.97,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 125.024,
+      "utilization_pct": 69,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 135.054,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 145.084,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 155.131,
+      "utilization_pct": 69,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 165.162,
+      "utilization_pct": 63,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 175.194,
+      "utilization_pct": 64,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 185.268,
+      "utilization_pct": 66,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 195.302,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 205.333,
+      "utilization_pct": 66,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 215.368,
+      "utilization_pct": 71,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 225.4,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 235.432,
+      "utilization_pct": 73,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 245.524,
+      "utilization_pct": 76,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 255.559,
+      "utilization_pct": 77,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 265.59,
+      "utilization_pct": 78,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 275.622,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 285.653,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 295.684,
+      "utilization_pct": 70,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 305.716,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 315.748,
+      "utilization_pct": 69,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 325.783,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 335.814,
+      "utilization_pct": 75,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 345.846,
+      "utilization_pct": 71,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 355.92,
+      "utilization_pct": 70,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 365.952,
+      "utilization_pct": 66,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 375.987,
+      "utilization_pct": 73,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 386.02,
+      "utilization_pct": 69,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 396.05,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 406.083,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 416.114,
+      "utilization_pct": 73,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 426.146,
+      "utilization_pct": 70,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 436.179,
+      "utilization_pct": 62,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 446.222,
+      "utilization_pct": 66,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 456.255,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 466.286,
+      "utilization_pct": 80,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 476.344,
+      "utilization_pct": 80,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 486.374,
+      "utilization_pct": 75,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 496.406,
+      "utilization_pct": 87,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 506.436,
+      "utilization_pct": 68,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 516.465,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 526.507,
+      "utilization_pct": 66,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 536.549,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 546.586,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 556.627,
+      "utilization_pct": 62,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 566.657,
+      "utilization_pct": 65,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 576.688,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 586.722,
+      "utilization_pct": 68,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 596.765,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 606.807,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 616.838,
+      "utilization_pct": 71,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 626.869,
+      "utilization_pct": 66,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 636.902,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 646.934,
+      "utilization_pct": 70,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 656.965,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 666.998,
+      "utilization_pct": 73,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 677.029,
+      "utilization_pct": 76,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 687.059,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 697.106,
+      "utilization_pct": 78,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 707.137,
+      "utilization_pct": 65,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 717.172,
+      "utilization_pct": 76,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 727.203,
+      "utilization_pct": 68,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 737.234,
+      "utilization_pct": 75,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 747.265,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 757.294,
+      "utilization_pct": 74,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 767.328,
+      "utilization_pct": 73,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 777.361,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 787.395,
+      "utilization_pct": 68,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 797.444,
+      "utilization_pct": 81,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 807.475,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 817.508,
+      "utilization_pct": 66,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 827.538,
+      "utilization_pct": 78,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 837.572,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 847.603,
+      "utilization_pct": 75,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 857.636,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 867.666,
+      "utilization_pct": 71,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 877.699,
+      "utilization_pct": 66,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 887.732,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 897.763,
+      "utilization_pct": 77,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 907.795,
+      "utilization_pct": 69,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 917.826,
+      "utilization_pct": 63,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 927.857,
+      "utilization_pct": 71,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 937.89,
+      "utilization_pct": 68,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 947.92,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 957.95,
+      "utilization_pct": 71,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 967.984,
+      "utilization_pct": 70,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 978.015,
+      "utilization_pct": 71,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 988.048,
+      "utilization_pct": 73,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 998.083,
+      "utilization_pct": 69,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1008.113,
+      "utilization_pct": 66,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1018.145,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1028.178,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1038.209,
+      "utilization_pct": 71,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1048.238,
+      "utilization_pct": 70,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1058.27,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1068.304,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1078.336,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1088.368,
+      "utilization_pct": 68,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1098.399,
+      "utilization_pct": 65,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1108.431,
+      "utilization_pct": 70,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1118.461,
+      "utilization_pct": 68,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1128.49,
+      "utilization_pct": 73,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1138.521,
+      "utilization_pct": 67,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1148.551,
+      "utilization_pct": 73,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1158.583,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1168.614,
+      "utilization_pct": 71,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1178.646,
+      "utilization_pct": 78,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1188.678,
+      "utilization_pct": 70,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1198.71,
+      "utilization_pct": 63,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1208.742,
+      "utilization_pct": 66,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1218.775,
+      "utilization_pct": 72,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1228.806,
+      "utilization_pct": 76,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    },
+    {
+      "t": 1238.837,
+      "utilization_pct": 71,
+      "memory_used_mib": 17656,
+      "memory_free_mib": 6436
+    }
+  ]
+}

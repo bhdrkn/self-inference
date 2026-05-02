@@ -100,6 +100,41 @@ We're also capturing `nvidia-smi dmon` during the run to show GPU utilization �
 
 ---
 
+## Benchmark results — Llama 3.1 8B, RTX 4090, 200 prompts, max_tokens=256
+
+Run date: 2 May 2026. Script: `benchmarks/benchmark.py`. Raw data: `benchmarks/results/post-01/`.
+
+| Concurrency | Throughput (tok/s) | p50 (s) | p90 (s) | p99 (s) | Failed |
+|-------------|-------------------|---------|---------|---------|--------|
+| 1 | 36.7 | 6.8 | 7.4 | 8.0 | 0/200 |
+| 5 | 37.3 | 29.9 | 41.4 | 52.6 | 0/200 |
+| 10 | 36.7 | 59.8 | 80.5 | 83.2 | 0/200 |
+| 20 | 7.4 | 115.5 | 124.3 | 124.8 | **149/200** |
+
+GPU utilization (from server telemetry, sampled every 10s):
+
+| Concurrency | Mean util | Max util | VRAM (mean) |
+|-------------|-----------|----------|-------------|
+| 1 | 67% | 84% | 16,859 MiB |
+| 5 | 72% | 100% | 17,623 MiB |
+| 10 | 71% | 100% | 17,645 MiB |
+| 20 | 71% | 99% | 17,656 MiB |
+
+### What the numbers show
+
+**Throughput is flat from concurrency 1 to 10.** 36–37 tok/s regardless of how many requests are in flight. The thread pool allows multiple requests to be queued, but `transformers.generate()` runs synchronously on the GPU — one sequence at a time. Concurrency at the HTTP layer does not translate to concurrency at the GPU.
+
+**Latency scales linearly with concurrency.** p50 at concurrency 5 (~30s) is roughly 5× the p50 at concurrency 1 (~7s). At concurrency 10, p50 is ~60s — requests are waiting ~10 request-lengths in the queue. The math holds.
+
+**Concurrency 20 breaks.** 149 of 200 requests hit the 300s client timeout. At concurrency 20 with ~7s per request serialised on the GPU, the expected wait for the 20th request in queue is ~140s — and that's before its own generation time. With variable prompt lengths some requests take much longer, pushing tail requests past 300s.
+
+**GPU is at 67–72% utilisation despite being the bottleneck.** The GPU is not idle — it is working. But ~30% is lost to the gaps between sequential requests: tokenisation, KV cache setup, the time between one request finishing and the next starting. This is the key observation for Post 2: there is headroom on the GPU that batching can exploit.
+
+### Surprises
+
+- Throughput staying this flat was expected, but the GPU utilisation hovering at 67–72% (not the ~30% mentioned in the series plan) suggests the overhead per request is lower than anticipated. The model is spending most of its time actually computing, not thrashing. Post 2's batching gains may be smaller than expected — worth noting.
+- Concurrency 20 failing hard (74.5% failure rate) was more dramatic than expected. Even concurrency 10 stayed within the 300s timeout for all requests. The cliff between 10 and 20 is steep.
+
 ## Surprises log
 
 > Anything that didn't behave the way I expected. These are the post's most valuable content — write them down immediately, even half-formed.

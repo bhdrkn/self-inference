@@ -115,4 +115,65 @@ Let's see what happens when we put it under load.
 
 ---
 
-*[Remainder of post pending. See `docs/posts/post-01-notes.md` for working notes and benchmark results.]*
+## Putting it under load
+
+The server is running Llama 3.1 8B Instruct on an RTX 4090 (24 GB VRAM). The benchmark sends 200 prompts sampled from the ShareGPT dataset — real conversations, first human turn only — at fixed concurrency levels. Each request asks for up to 256 output tokens.
+
+```bash
+python benchmarks/benchmark.py \
+    --host <pod>.proxy.runpod.net --port 443 --https \
+    --model meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --dataset benchmarks/data/ShareGPT_V3_unfiltered_cleaned_split.json \
+    --num-prompts 200 --concurrency 1 5 10 20 \
+    --output-dir benchmarks/results/post-01
+```
+
+### Results
+
+| Concurrency | Throughput (tok/s) | p50 latency | p90 latency | p99 latency | Failed |
+|-------------|-------------------|-------------|-------------|-------------|--------|
+| 1 | 36.7 | 6.8s | 7.4s | 8.0s | 0/200 |
+| 5 | 37.3 | 29.9s | 41.4s | 52.6s | 0/200 |
+| 10 | 36.7 | 59.8s | 80.5s | 83.2s | 0/200 |
+| 20 | 7.4 | 115.5s | 124.3s | 124.8s | **149/200** |
+
+And the GPU, sampled every 10 seconds throughout each run:
+
+| Concurrency | Mean GPU util | VRAM used |
+|-------------|--------------|-----------|
+| 1 | 67% | 16.9 GB |
+| 5 | 72% | 17.2 GB |
+| 10 | 71% | 17.2 GB |
+| 20 | 71% | 17.2 GB |
+
+### What's happening
+
+**Throughput is flat.** 36–37 tok/s from concurrency 1 all the way to concurrency 10. Adding more concurrent requests does nothing. The thread pool lets requests queue up at the HTTP layer, but `transformers.generate()` runs synchronously on the GPU — one sequence at a time. Concurrency at the application layer does not translate to concurrency at the GPU.
+
+**Latency scales linearly.** p50 at concurrency 5 (~30s) is roughly 5× the p50 at concurrency 1 (~7s). At concurrency 10, p50 is ~60s. The math is straightforward: each request waits for all the requests ahead of it in the queue before the GPU starts working on it. The queue is the bottleneck, not the model.
+
+**Concurrency 20 breaks.** 149 of 200 requests hit the 300-second client timeout. At concurrency 20 with ~7s per request serialised through the GPU, the expected wait for the last request in queue is already ~140s before generation even starts. Longer prompts push it over the edge.
+
+### The interesting part
+
+The GPU is at 67–72% utilisation — and it is the bottleneck.
+
+That might seem contradictory. If the GPU is busy, why is throughput flat? The answer is that the GPU is busy, but only one request at a time. The remaining 30% is lost to the overhead between requests: tokenising the next prompt, copying tensors to device, setting up the KV cache for the new sequence. These are sequential operations that happen before the GPU can start generating for the next request.
+
+There is headroom on the GPU that the current design cannot exploit. To use it, you need to give the GPU work from multiple requests simultaneously — which means batching. That's Post 2.
+
+---
+
+## The question this leaves open
+
+The thread pool was the right instinct. More workers, more concurrency — that's how you scale a slow operation in a backend service. It works for database queries. It works for HTTP calls.
+
+It doesn't work here, and the reason is specific to how GPU inference works. The GPU is not like a database with a connection pool. It does not handle concurrent queries independently — it executes one forward pass at a time, and a forward pass processes exactly one batch.
+
+A single request is a batch of size 1. Five concurrent requests are five batches of size 1, queued. The GPU never sees five requests at once — it sees them one after another. The concurrency is entirely in the waiting room.
+
+The fix is to give the GPU a bigger batch. Instead of processing request 1, then request 2, then request 3 — process requests 1, 2, and 3 together in a single forward pass. Same VRAM, same compute, 3× the useful output.
+
+That's static batching. It helps — and it introduces a new failure mode that's more interesting than this one.
+
+*→ Post 2: Why your GPU is bored: batching, KV cache, and the memory wall*
