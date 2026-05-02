@@ -38,7 +38,7 @@ torch = [
   { index = "pytorch-cu124", marker = "sys_platform == 'linux'" },
 ]
 
-[[tool.uv.indexes]]
+[[tool.uv.index]]
 name = "pytorch-cu124"
 url = "https://download.pytorch.org/whl/cu124"
 explicit = true  # only used for packages that reference it in [tool.uv.sources]
