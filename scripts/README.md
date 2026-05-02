@@ -12,8 +12,10 @@ Keep these small, single-purpose, and well-commented.
 
 ## Scripts
 
-| Script | Post | Purpose |
-|--------|------|---------|
-| `setup_runpod.sh` | 01+ | Bootstrap a fresh RunPod instance: install `uv`, Python deps, pull Llama 3.1 8B weights from Hugging Face. |
-| `stop_runpod.sh` | 01+ | Stop the RunPod instance via the RunPod API. Run this when done benchmarking — leaving the instance running is money burning. |
-| `plot_results.py` | 01+ | Read JSON benchmark output from `benchmarks/results/post-N/`, produce SVGs for embedding in posts. |
+| Script | Runs on | Post | Purpose |
+|--------|---------|------|---------|
+| `run-server.sh` | RunPod pod | 01+ | Install `uv`, clone repo, install CUDA deps, download model weights, start inference server. |
+| `start-local-server.sh` | Laptop | 01+ | Start inference server locally, wait until ready, report status. |
+| `stop-local-server.sh` | Laptop | 01+ | Stop the local server using the PID file. |
+| `run-smoke-test-local.sh` | Laptop | 01+ | Run 5 prompts against the local server to verify the benchmark pipeline end-to-end. |
+| `plot_results.py` | Laptop | 01+ | Read JSON benchmark output from `benchmarks/results/post-N/`, produce SVGs for embedding in posts. |
