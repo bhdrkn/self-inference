@@ -1,0 +1,21 @@
+[project]
+name = "self-inference"
+version = "0.1.0"
+description = "Building an LLM inference stack from scratch, post by post."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+# Per-post dependencies are added in each branch as the series progresses.
+# Keep main minimal.
+dev = [
+  "ruff>=0.6.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

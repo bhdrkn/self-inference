@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/
+
+# uv
+.uv/
+
+# Rust (for Post 4)
+target/
+Cargo.lock
+
+# Model weights and caches — never commit these
+*.bin
+*.safetensors
+*.gguf
+models/
+.cache/
+hf_cache/
+
+# Benchmark raw outputs — keep summaries in posts, not raw logs
+benchmarks/results/**/raw/
+benchmarks/results/**/*.log
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Secrets — defense in depth
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+hf_token*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local notes that aren't ready to share
+SCRATCH.md
+TODO-private.md
