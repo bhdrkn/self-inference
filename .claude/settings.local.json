@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(uv sync *)",
+      "Bash(MOCK_MODE=true uv run --group post-01 python src/server.py)",
+      "Bash(curl -s -X POST http://localhost:8000/v1/chat/completions -H 'Content-Type: application/json' -d '{\"model\":\"test\",\"messages\":[{\"role\":\"user\",\"content\":\"hello\"}],\"max_tokens\":10}')",
+      "Bash(python3 -m json.tool kill %1)",
+      "Bash(./scripts/start-local-server.sh *)",
+      "Bash(./scripts/stop-local-server.sh)"
+    ]
+  }
+}

@@ -29,9 +29,13 @@ models/
 .cache/
 hf_cache/
 
+# Benchmark datasets — large files, download locally
+benchmarks/data/
+
 # Benchmark raw outputs — keep summaries in posts, not raw logs
 benchmarks/results/**/raw/
 benchmarks/results/**/*.log
+benchmarks/results/**/smoke-test.json
 
 # Editor / OS
 .DS_Store
@@ -39,6 +43,10 @@ benchmarks/results/**/*.log
 .vscode/
 *.swp
 *.swo
+
+# Local server state
+.server.pid
+.server.log
 
 # Secrets — defense in depth
 .env

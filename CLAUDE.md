@@ -10,7 +10,7 @@ The point of this repo is not to build production inference infrastructure. It i
 
 ## Audience
 
-Senior backend engineers breaking into AI infra. Skip "intro to LLM" framing. Assume the reader knows what a transformer is, has shipped distributed systems, and wants substance.
+Engineers with backend/distributed systems experience breaking into AI infra. Assume the reader has shipped services under load but may not know LLM-specific concepts — explain those in context as they come up. Skip general "intro to LLMs" framing. Focus on substance.
 
 ## The six posts
 

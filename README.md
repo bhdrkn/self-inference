@@ -8,20 +8,20 @@ Each post is paired with a working implementation in this repo. The goal is not 
 
 ## Who this is for
 
-Senior backend / distributed systems engineers who want to break into AI infrastructure work and are tired of "intro to LLMs" content that stops where the interesting problems start.
+Engineers who have shipped backend services and want to understand what is genuinely different about serving language models — and are tired of "intro to LLMs" content that stops where the interesting problems start.
 
-If you've ever shipped a high-throughput service and wondered what's actually different about serving language models — this series is for you.
+If you have ever built something that had to handle real load and wondered what makes GPU inference behave unlike anything else you have served — this series is for you.
 
 ## The series
 
-| # | Post | Status | Branch |
-|---|------|--------|--------|
-| 1 | Running an LLM at home is easy. Serving one is not. | 🟡 In progress | `01-naive` |
-| 2 | Why your GPU is bored: batching, KV cache, and the memory wall | ⚪ Planned | `02-batching` |
-| 3 | Continuous batching and PagedAttention: how vLLM actually works | ⚪ Planned | `03-vllm` |
-| 4 | Routing inference: when one GPU isn't enough | ⚪ Planned | `04-routing` |
-| 5 | Observability for inference: what to measure and why | ⚪ Planned | `05-observability` |
-| 6 | What I'd do differently: a retrospective | ⚪ Planned | `06-retrospective` |
+| # | Post | Status | Branch | What breaks |
+|---|------|--------|--------|-------------|
+| 1 | Running an LLM at home is easy. Serving one is not. | 🟡 In progress | `01-naive` | A FastAPI server wrapping `transformers.generate()` with a thread pool. Concurrent requests, standard backend setup. Measure what happens under load. |
+| 2 | Why your GPU is bored: batching, KV cache, and the memory wall | ⚪ Planned | `02-batching` | Static batching on top of `transformers`. Better throughput, but a new failure mode appears: head-of-line blocking from variable-length requests. |
+| 3 | Continuous batching and PagedAttention: how vLLM actually works | ⚪ Planned | `03-vllm` | Drop in vLLM. Read the scheduler and block manager source. Understand why it's different, not just that it's faster. |
+| 4 | Routing inference: when one GPU isn't enough | ⚪ Planned | `04-routing` | Two vLLM instances behind a custom router. Round-robin as baseline. Prefix-aware routing to maximize KV cache reuse across replicas. |
+| 5 | Observability for inference: what to measure and why | ⚪ Planned | `05-observability` | Instrument the Post 4 stack. TTFT, ITL, p99 under variable request cost. What the metrics reveal — and what they hide. |
+| 6 | What I'd do differently: a retrospective | ⚪ Planned | `06-retrospective` | Honest reflection on what surprised me, what I got wrong, and what I deliberately left untouched. |
 
 Each branch contains the code as it exists at the end of that post. `main` always reflects the latest completed post.
 
@@ -35,9 +35,23 @@ You will need:
 
 Each post's branch has its own README with setup steps and benchmark commands.
 
+## Troubleshooting
+
+### Model not using the GPU (VRAM shows ~2 MiB)
+
+PyTorch silently falls back to CPU when the installed wheel's CUDA version doesn't match the driver. This repo pins torch on Linux to the PyTorch CUDA 12.4 index via `[tool.uv.sources]` in `pyproject.toml`. If you're on a different driver, update the index URL accordingly.
+
+Diagnose with:
+```bash
+uv run python -c "import torch; print(torch.cuda.is_available(), torch.version.cuda)"
+nvidia-smi  # should show model VRAM (e.g. ~16 GB for Llama 8B), not 2 MiB
+```
+
+See `docs/posts/post-01-notes.md` for the full write-up.
+
 ## Why I'm writing this
 
-I'm a senior software engineer with a decade of distributed systems experience, currently working on agentic LLM systems. I want to move deeper into the infrastructure side of AI — and the most honest way to learn it is to build it badly first, then better, in public.
+I have a decade of distributed systems experience and am currently working on agentic LLM systems. I want to move deeper into the infrastructure side of AI — and the most honest way to learn it is to build it badly first, then better, in public.
 
 If you're on a similar path, follow along. If you spot something wrong, open an issue.
 
