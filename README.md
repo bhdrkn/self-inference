@@ -35,6 +35,45 @@ You will need:
 
 Each post's branch has its own README with setup steps and benchmark commands.
 
+## Running on RunPod
+
+### Starting a new pod
+
+1. Create a pod with an RTX 4090 (or A100 for Posts 3+), set disk to at least 50 GB.
+2. Under **Environment Variables**, set:
+   - `HF_TOKEN` — your Hugging Face token
+   - `MODEL_NAME` — e.g. `meta-llama/Meta-Llama-3.1-8B-Instruct`
+   - Any post-specific vars (e.g. `BATCH_SIZE`, `BATCH_TIMEOUT_MS` for Post 2)
+3. Once the pod is up, open a terminal and run:
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/bhdrkn/self-inference/<branch>/scripts/run-server.sh)
+```
+Replace `<branch>` with the post branch you're running (e.g. `02-batching`).
+
+4. Verify the model loaded onto the GPU:
+```bash
+nvidia-smi                                              # should show ~16 GB VRAM used
+grep -E "Loading|Model ready|Batching loop" /workspace/server.log
+```
+
+5. Sanity-check the endpoint:
+```bash
+curl -s https://<pod-id>.proxy.runpod.net/v1/chat/completions \
+  -X POST -H "Content-Type: application/json" \
+  -d '{"model":"llama","messages":[{"role":"user","content":"hi"}],"max_tokens":10}' \
+  | python3 -m json.tool
+```
+
+### Updating a running pod
+
+If you push new code and want to pick it up without recreating the pod:
+```bash
+cd /workspace/self-inference
+git fetch origin && git reset --hard origin/<branch>
+kill $(cat /workspace/server.pid)
+bash scripts/run-server.sh
+```
+
 ## Troubleshooting
 
 ### Model not using the GPU (VRAM shows ~2 MiB)
