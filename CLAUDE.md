@@ -45,6 +45,28 @@ Current status and detailed plan: see `docs/series-plan.md`.
 - **No fabricated numbers.** If a benchmark wasn't run, don't write what it "would" show. Run it.
 - **Honest gaps.** When the author lacks experience in something (e.g., accelerator-level optimization, multi-node tensor parallelism), name it rather than bluffing. The retrospective post depends on this.
 
+## Server lifecycle
+
+Always use the scripts in `scripts/` for server start/stop — never start `src/server.py` directly with `python` or `&`. The start script writes a PID file that the stop script depends on.
+
+```bash
+# Start (env vars set before the command, not inside the script)
+MOCK_MODE=true BATCH_SIZE=4 scripts/start-local-server.sh
+
+# Stop
+scripts/stop-local-server.sh
+```
+
+If the server was accidentally started outside the script, `lsof -ti :8000 | xargs kill` cleans it up — but fix the root cause, don't make a habit of it.
+
+### Two local testing modes
+
+**Mock mode** (`MOCK_MODE=true`): skips model loading entirely, sleeps for `MOCK_LATENCY` seconds per request. Use this first — fast startup, no GPU/CPU required, good for verifying server logic, batching behaviour, and telemetry correctness.
+
+**Local 1B model** (default, CPU): loads `meta-llama/Llama-3.2-1B-Instruct` on CPU. Slow inference but real model outputs. Use this after mock mode passes, to verify the full pipeline end-to-end before deploying to RunPod.
+
+Always test in this order: mock → local 1B → RunPod. Don't skip to RunPod to save time — it costs money and obscures whether a bug is in the server logic or the GPU environment.
+
 ## What to do when starting a session
 
 1. Read `docs/series-plan.md` to see current post status.
