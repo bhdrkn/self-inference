@@ -1,7 +1,7 @@
 # Series plan
 
 **Status as of:** 2 May 2026
-**Active post:** Post 1 (not yet started)
+**Active post:** Post 2
 **Cadence:** one post every 2 weeks
 **Target completion:** end of July 2026
 
@@ -13,7 +13,7 @@ Six posts, each motivated by a problem exposed in the previous one. The narrativ
 
 **Branch:** `01-naive`
 **Estimated effort:** ~12 hours
-**Status:** not started
+**Status:** complete — merged to master 2 May 2026
 
 ### Goal
 Set up the worst plausible inference server. Show that running a model and serving a model are different problems. Make the reader feel the gap.
