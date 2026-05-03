@@ -30,8 +30,15 @@ uv run python benchmarks/benchmark.py \
     --dataset benchmarks/data/ShareGPT_V3_unfiltered_cleaned_split.json \
     --num-prompts 200 \
     --concurrency 1 5 10 20 \
-    --output benchmarks/results/post-01/results.json
+    --output-dir benchmarks/results/post-01
 ```
+
+Each concurrency level produces a separate file: `concurrency-1.json`, `concurrency-5.json`, etc.
+
+Each file contains:
+- `summary` — aggregate stats (throughput, p50/p90/p99 latency, token counts)
+- `requests` — per-request records with `t_start`, `t_end`, `latency_s`, `prompt_tokens`, `completion_tokens`
+- `gpu_samples` — GPU utilization and memory snapshots polled every second from the server's `/metrics` endpoint
 
 ## Conventions
 

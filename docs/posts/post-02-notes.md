@@ -62,6 +62,30 @@ Kafka-style streaming solves HOL blocking by processing messages as they complet
 - `benchmarks/benchmark.py` — mixed short/long workload mode to demonstrate HOL blocking
 - Batch size sweep to show memory wall
 
+## Q&A — questions that came up during writing
+
+### Does batching introduce privacy concerns between users?
+
+No cross-contamination at the model level. Attention is computed within each sequence — sequence 5 only attends to its own tokens, enforced by the attention mask. User 1's prompt is physically present in the same batch matrix in VRAM but has zero mathematical influence on User 5's output. KV caches are also per-sequence; there is no shared state.
+
+The legitimate privacy concern is narrower: all prompts in a batch exist simultaneously in GPU VRAM. A memory-level attack on the GPU host could read other users' tokens. That is an infrastructure concern, not a model concern.
+
+### Does batching affect output quality or increase hallucinations?
+
+No. Batching is mathematically equivalent to running each sequence individually. Padding tokens are masked out of attention, sampling is applied per-sequence, and the model weights are fixed. Hallucination is a function of model weights and prompt — the model doesn't know other sequences are being processed.
+
+Small caveat: GPU floating point is not strictly deterministic. Batched matrix multiplications can differ from sequential ones by ~1e-5 in logit values — well below the threshold of changing which token gets sampled. Any output differences are indistinguishable from normal temperature-induced non-determinism.
+
+### Where is the attention mask set?
+
+Automatically by the tokenizer and model — nothing to set manually beyond `tokenizer.padding_side = "left"`.
+
+`tokenizer(texts, padding=True)` returns both `input_ids` and `attention_mask` — a 0/1 matrix where `1` = real token, `0` = padding. The model's attention layers zero out scores at any position where the mask is `0`. In the server, `inputs.to(device)` moves both tensors to GPU and `model.generate(**inputs)` unpacks them both. The mask travels with the input automatically.
+
+The one manual step: `padding_side = "left"` must be set before tokenizing. The tokenizer still generates a correct mask without it — but the padding lands on the right, and generation appends new tokens into the middle of sequences instead of at the end.
+
+---
+
 ## Decisions made
 
 - **Conversation mode**: not in this post. Conversation history doesn't add anything to the static batching story. Introduce it in Post 3 where prefix caching and KV cache reuse across turns becomes relevant.
