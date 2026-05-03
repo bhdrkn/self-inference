@@ -8,9 +8,9 @@ Each post is paired with a working implementation in this repo. The goal is not 
 
 ## Who this is for
 
-Senior backend / distributed systems engineers who want to break into AI infrastructure work and are tired of "intro to LLMs" content that stops where the interesting problems start.
+Engineers who have shipped backend services and want to understand what is genuinely different about serving language models — and are tired of "intro to LLMs" content that stops where the interesting problems start.
 
-If you've ever shipped a high-throughput service and wondered what's actually different about serving language models — this series is for you.
+If you have ever built something that had to handle real load and wondered what makes GPU inference behave unlike anything else you have served — this series is for you.
 
 ## The series
 
@@ -51,7 +51,7 @@ See `docs/posts/post-01-notes.md` for the full write-up.
 
 ## Why I'm writing this
 
-I'm a senior software engineer with a decade of distributed systems experience, currently working on agentic LLM systems. I want to move deeper into the infrastructure side of AI — and the most honest way to learn it is to build it badly first, then better, in public.
+I have a decade of distributed systems experience and am currently working on agentic LLM systems. I want to move deeper into the infrastructure side of AI — and the most honest way to learn it is to build it badly first, then better, in public.
 
 If you're on a similar path, follow along. If you spot something wrong, open an issue.
 

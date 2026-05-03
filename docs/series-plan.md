@@ -127,7 +127,7 @@ Don't gate the post on Rust fluency. Get the Python router working first. If Rus
 **Status:** planned
 
 ### Goal
-Show the *judgment* expected of senior engineers. Anyone can add Prometheus. The question is what to plot.
+Anyone can add Prometheus. The question is what to plot and why it matters.
 
 ### Concepts to cover
 - Why p99 is misleading when request costs vary by 100x.
