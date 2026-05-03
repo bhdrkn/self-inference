@@ -25,13 +25,17 @@ Current status and detailed plan: see `docs/series-plan.md`.
 
 ## Repo conventions
 
-- **Python 3.11+**, dependencies managed with `uv`. No `requirements.txt`; use `pyproject.toml`.
-- **One branch per post**: `01-naive`, `02-batching`, etc. `main` reflects the latest completed post.
+- **Python 3.11+**, dependencies managed with `uv`. No `requirements.txt`; use `pyproject.toml`. Never use `pip` directly — add dependencies via `pyproject.toml` and `uv sync`.
+- **One branch per post**: `01-naive`, `02-batching`, etc. `master` is the default branch (not `main`) and always reflects the latest completed post.
 - **Code lives in `src/`**, benchmarks in `benchmarks/`, helper scripts in `scripts/`.
 - **Posts live in `posts/`** as markdown. Notes and drafts live in `docs/posts/`.
 - **Rust is planned for Post 4 only** (the router). Don't introduce Rust before then. If Rust feels like a stretch when we get there, write Post 4's router in Python first and consider Rust as a follow-up.
 - **No production-grade abstractions.** Don't add config systems, plugin architectures, or framework wrappers unless a post specifically motivates them. The reader should be able to read the code top-to-bottom in 20 minutes.
 - **Benchmarks must be reproducible.** Every benchmark gets a script in `benchmarks/` and writes raw output to `benchmarks/results/`. Numbers in posts cite the script that produced them.
+
+## Writing style
+
+- **No competence-signaling language.** Don't describe the target audience as "senior engineers", "competent engineers", or similar. The posts assume distributed systems experience without flattering the reader. Describe what the reader knows (e.g. "has shipped services under load") not what rank they hold.
 
 ## Working style
 
