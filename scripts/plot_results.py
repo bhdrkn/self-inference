@@ -56,11 +56,14 @@ def throughput_chart(results: dict) -> alt.Chart:
     x_enc = alt.X("concurrency:O", title="Concurrency",
                    sort=sort_order, axis=alt.Axis(labelAngle=0))
 
+    max_tok_s = max(r["tok_s"] for r in rows) if rows else THEORETICAL_MAX_TOK_S
+    y_max = max(max_tok_s * 1.15, THEORETICAL_MAX_TOK_S * 1.15)
+
     line = alt.Chart(alt.Data(values=rows)).mark_line(
         strokeWidth=2, color="#4C78A8"
     ).encode(
         x=x_enc,
-        y=alt.Y("tok_s:Q", title="Throughput (tok/s)", scale=alt.Scale(domain=[0, 75])),
+        y=alt.Y("tok_s:Q", title="Throughput (tok/s)", scale=alt.Scale(domain=[0, y_max])),
     )
 
     points = alt.Chart(alt.Data(values=rows)).mark_point(
