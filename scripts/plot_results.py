@@ -146,6 +146,70 @@ def latency_chart(results: dict) -> alt.Chart:
     ).configure_view(strokeWidth=0)
 
 
+def memory_chart(results: dict) -> alt.Chart | None:
+    """Bar chart: peak VRAM used (MiB) vs concurrency.
+    Bars are red when failures occurred. Ceiling shown as a reference line.
+    Returns None if no GPU memory data is present.
+    """
+    concurrency_levels = sorted(results.keys())
+    sort_order = [str(c) for c in concurrency_levels]
+
+    rows = []
+    total_mib = None
+    for c in concurrency_levels:
+        d = results[c]
+        s = d.get("summary", {})
+        samples = d.get("gpu_samples", [])
+        if not samples or "error" in s:
+            continue
+        peak = max(s["memory_used_mib"] for s in samples)
+        free = samples[0]["memory_used_mib"] + samples[0]["memory_free_mib"]
+        if total_mib is None:
+            total_mib = free + peak  # approximation from first sample
+        total_mib = max(total_mib, peak + samples[0]["memory_free_mib"])
+        rows.append({
+            "concurrency": str(c),
+            "memory_mib": peak,
+            "failed": s.get("num_failed", 0) > 0,
+        })
+
+    if not rows or total_mib is None:
+        return None
+
+    bars = alt.Chart(alt.Data(values=rows)).mark_bar().encode(
+        x=alt.X("concurrency:O", title="Concurrency", sort=sort_order, axis=alt.Axis(labelAngle=0)),
+        y=alt.Y("memory_mib:Q", title="Peak VRAM Used (MiB)", scale=alt.Scale(domain=[0, total_mib * 1.05])),
+        color=alt.condition(
+            "datum.failed",
+            alt.value("#E45756"),
+            alt.value("#4C78A8"),
+        ),
+        tooltip=[
+            alt.Tooltip("concurrency:O", title="Concurrency"),
+            alt.Tooltip("memory_mib:Q", title="Peak VRAM (MiB)", format=".0f"),
+        ],
+    )
+
+    ceiling = alt.Chart(alt.Data(values=[{"y": total_mib}])).mark_rule(
+        strokeDash=[6, 4], color="#aaa", strokeWidth=1
+    ).encode(y="y:Q")
+
+    ceiling_label = alt.Chart(
+        alt.Data(values=[{"concurrency": sort_order[-1], "y": total_mib}])
+    ).mark_text(
+        align="right", dx=-6, dy=-10, color="#999", fontSize=11,
+        text=f"GPU total ({total_mib:,} MiB)",
+    ).encode(
+        x=alt.X("concurrency:O", sort=sort_order),
+        y=alt.Y("y:Q"),
+    )
+
+    return (bars + ceiling + ceiling_label).properties(
+        title=alt.TitleParams("Peak VRAM Usage vs Concurrency (red = failures)", anchor="start"),
+        width=480, height=260,
+    ).configure_view(strokeWidth=0)
+
+
 def gpu_utilization_chart(results: dict) -> alt.Chart | None:
     """Area + line time series: GPU utilization % during a benchmark run.
     Uses the highest non-failed concurrency level available.
@@ -208,11 +272,17 @@ def main():
         ("latency.svg", latency_chart(results)),
     ]
 
+    mem_chart = memory_chart(results)
+    if mem_chart:
+        charts.append(("memory.svg", mem_chart))
+    else:
+        print("Skipping memory chart — no GPU memory data (CPU-only run?)")
+
     gpu_chart = gpu_utilization_chart(results)
     if gpu_chart:
         charts.append(("gpu-utilization.svg", gpu_chart))
     else:
-        print("Skipping GPU chart — no GPU data (CPU-only run?)")
+        print("Skipping GPU utilization chart — no GPU data (CPU-only run?)")
 
     for filename, chart in charts:
         out_path = results_dir / filename
