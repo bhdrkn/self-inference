@@ -14,7 +14,7 @@
 set -euo pipefail
 
 REPO_URL="https://github.com/bhdrkn/self-inference.git"
-BRANCH="01-naive"
+BRANCH="02-batching"
 WORK_DIR="/workspace/self-inference"
 LOG_FILE="/workspace/server.log"
 PID_FILE="/workspace/server.pid"
@@ -74,6 +74,7 @@ echo ""
 echo "==> Installing Python dependencies..."
 # torch on Linux is resolved from the pytorch-cu124 index (see pyproject.toml)
 # so uv sync installs the CUDA 12.4-compatible wheel automatically.
+# Post 2 adds no new dependencies — post-01 group covers everything needed.
 uv sync --group post-01
 echo "    Torch: $(uv run python -c 'import torch; print(torch.__version__, \"| CUDA:\", torch.cuda.is_available())')"
 
@@ -114,9 +115,14 @@ if [ -f "$PID_FILE" ]; then
 fi
 
 echo ""
+BATCH_SIZE="${BATCH_SIZE:-8}"
+BATCH_TIMEOUT_MS="${BATCH_TIMEOUT_MS:-100}"
+
 echo "==> Starting inference server..."
 echo "    MODEL_NAME=$MODEL_NAME"
+echo "    BATCH_SIZE=$BATCH_SIZE  BATCH_TIMEOUT_MS=$BATCH_TIMEOUT_MS"
 nohup env MODEL_NAME="$MODEL_NAME" HF_TOKEN="$HF_TOKEN" \
+    BATCH_SIZE="$BATCH_SIZE" BATCH_TIMEOUT_MS="$BATCH_TIMEOUT_MS" \
     uv run python src/server.py > "$LOG_FILE" 2>&1 &
 echo $! > "$PID_FILE"
 echo "    PID: $(cat $PID_FILE) | Log: $LOG_FILE"
