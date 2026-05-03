@@ -231,7 +231,7 @@ async def lifespan(app: FastAPI):
             tokenizer.pad_token = tokenizer.eos_token
         model = AutoModelForCausalLM.from_pretrained(
             MODEL_NAME,
-            torch_dtype=dtype,
+            dtype=dtype,
             device_map="auto" if device == "cuda" else None,
         )
         if device == "cpu":

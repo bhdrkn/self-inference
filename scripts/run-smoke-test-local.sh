@@ -13,7 +13,7 @@
 set -euo pipefail
 
 DATASET="benchmarks/data/ShareGPT_V3_unfiltered_cleaned_split.json"
-OUTPUT="benchmarks/results/post-01/smoke-test.json"
+OUTPUT_DIR="benchmarks/results/post-02/smoke-test"
 NUM_PROMPTS=5
 CONCURRENCY="1"
 
@@ -43,7 +43,7 @@ fi
 # --- Run ---
 echo "Running smoke test ($NUM_PROMPTS prompts, concurrency $CONCURRENCY)..."
 echo "Model: $MODEL_NAME"
-echo "Output: $OUTPUT"
+echo "Output dir: $OUTPUT_DIR"
 echo ""
 
 .venv/bin/python benchmarks/benchmark.py \
@@ -51,7 +51,7 @@ echo ""
     --dataset "$DATASET" \
     --num-prompts "$NUM_PROMPTS" \
     --concurrency $CONCURRENCY \
-    --output "$OUTPUT"
+    --output-dir "$OUTPUT_DIR"
 
 echo ""
-echo "Smoke test complete. Results at $OUTPUT"
+echo "Smoke test complete. Results at $OUTPUT_DIR"

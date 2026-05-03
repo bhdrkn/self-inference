@@ -49,6 +49,9 @@ async def main() -> None:
             tel = await r.json()
 
     reqs = tel["requests"]
+    # Drop any stale records that predate our reset (t_start much larger than
+    # expected, meaning they were timestamped relative to a previous _t0).
+    reqs = [r for r in reqs if r["t_start"] < 10.0]
     print(f"Telemetry records: {len(reqs)} (expected {NUM_REQUESTS})")
     print(f"t_start values: {[r['t_start'] for r in reqs]}")
     print(f"t_end values:   {[r['t_end'] for r in reqs]}")
