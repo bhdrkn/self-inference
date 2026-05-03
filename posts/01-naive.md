@@ -14,7 +14,7 @@ This series is about building an inference stack from scratch — one post at a 
 
 The target audience is engineers who have shipped backend services and want to understand what is genuinely different about serving language models. Serving an LLM has enough new concepts — forward passes, KV caches, GPU memory constraints — that they are worth explaining in context, as they become relevant, rather than front-loading them. When we hit something GPU-specific that behaves unlike anything you have served before, we will stop and explain it.
 
-The approach: build the most reasonable server we can. No deliberate naivety. We want to investigate the bottlenecks on the GPU and model side of the problem, not re-discover basic HTTP server problems. Then measure it, explain precisely why it fails under load, and fix it in the next post. Each post leaves one question open. Post 2 answers it.
+The approach: build the most reasonable server we can. No deliberate naivety. We want to investigate the bottlenecks on the GPU and model side of the problem, not re-discover basic HTTP server problems. Then measure it, explain precisely why it fails under load, and fix it.
 
 First question: which model are we serving?
 
@@ -145,8 +145,6 @@ The full model loading happens once at server startup. At request time, the hot 
 
 **OpenAI-compatible interface.** The endpoint follows the OpenAI chat completions schema: `POST /v1/chat/completions`, a `messages` array in the request body, and a `usage` object in the response with token counts. This is not just convenience — every benchmark tool, client library, and evaluation harness in the ecosystem speaks this interface. Using it means we spend no time writing adapters. Every tool we use in later posts works against our server without modification.
 
-**Mock mode.** The server supports `MOCK_MODE=true`, which skips model loading entirely and returns a dummy response after a configurable sleep. This lets you test the benchmark pipeline and verify the telemetry works without renting a GPU. Everything in this post was validated in mock mode first.
-
 **In-memory telemetry.** The server records the start and end time and token counts for every request, and samples GPU utilization from `nvidia-smi` every 10 seconds. After each benchmark run, `GET /telemetry` returns all of it as JSON. This gives us server-side timing (inference only, no network) alongside GPU utilization on the same time axis, without needing any external monitoring infrastructure. Post 5 is specifically about observability and proper instrumentation; for now, this is sufficient.
 
 The full server is about 160 lines and lives in `src/server.py` on the `01-naive` branch.
@@ -216,6 +214,16 @@ That something is the forward pass.
 Recall what happens for each token generated: the current sequence is multiplied through dozens of weight matrices to produce the next token probability. The GPU executes this as a single, massively parallel matrix operation — thousands of tiny computations running simultaneously on its cores. But "parallel" here means across the elements of the computation, not across multiple independent requests. By default, `transformers.generate()` runs one sequence at a time. Each call holds the GPU until it finishes. The thread pool queues additional requests, but they wait — the GPU sees them sequentially regardless of how many threads are running.
 
 This is the core mismatch between how we think about concurrency in backend services and how GPU inference actually works. Adding threads to a database-backed service increases parallelism because the database can serve multiple queries at once. Adding threads to a `transformers.generate()` call increases the queue length, not the GPU throughput.
+
+**How far are we from the hardware limit?** The RTX 4090 has 1008 GB/s of memory bandwidth. During the decode phase — generating one token at a time — the GPU reads the full weight matrix on every forward pass. For Llama 3.1 8B in bf16 (16 GB of weights), that sets a hard ceiling:
+
+```
+1008 GB/s ÷ 16 GB = ~63 tok/s per sequence
+```
+
+We measured 36–37 tok/s, which is about 58% of the theoretical maximum for a single sequence. The gap comes from Python overhead, memory allocation, and unoptimized attention kernels — none of which are visible in the throughput number but all of which eat into it.
+
+63 tok/s is the ceiling for *one sequence at a time*. Batching multiple sequences into a single forward pass does not change the memory reads — the weights are the same — but it amortizes them across more output tokens. In theory, a well-batched system on this hardware can produce several hundred tokens per second total. Closing the gap between where we are and what the hardware can actually do is the thread that runs through Posts 2 and 3.
 
 ### Latency scales linearly with concurrency
 
