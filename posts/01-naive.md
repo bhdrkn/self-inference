@@ -185,6 +185,10 @@ Each concurrency level gets its own file: `benchmarks/results/post-01/concurrenc
 
 Hardware: RTX 4090 (24 GB VRAM). Model: Llama 3.1 8B Instruct, loaded in bf16. 200 prompts from ShareGPT, max 256 output tokens per request. Concurrency levels: 1, 5, 10, 20.
 
+![Throughput vs Concurrency](../benchmarks/results/post-01/throughput.svg)
+
+![Latency vs Concurrency](../benchmarks/results/post-01/latency.svg)
+
 | Concurrency | Throughput (tok/s) | p50 latency | p90 latency | p99 latency | Failed |
 |-------------|-------------------|-------------|-------------|-------------|--------|
 | 1 | 36.7 | 6.8s | 7.4s | 8.0s | 0/200 |
@@ -193,6 +197,8 @@ Hardware: RTX 4090 (24 GB VRAM). Model: Llama 3.1 8B Instruct, loaded in bf16. 2
 | 20 | 7.4 | 115.5s | 124.3s | 124.8s | **149/200** |
 
 GPU utilization, sampled every 10 seconds by the server:
+
+![GPU Utilization Over Time](../benchmarks/results/post-01/gpu-utilization.svg)
 
 | Concurrency | Mean GPU util | VRAM used |
 |-------------|--------------|-----------|
