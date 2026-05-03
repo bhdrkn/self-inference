@@ -40,28 +40,29 @@ Set up the worst plausible inference server. Show that running a model and servi
 
 **Branch:** `02-batching`
 **Estimated effort:** ~15 hours
-**Status:** planned
+**Status:** in progress
 
 ### Goal
-The conceptual post. Earn credibility with a senior-engineer audience by being precise about what's actually happening on the GPU.
+Show that batching is the right instinct but static batching is the wrong implementation. Introduce the problems (memory wall, HOL blocking) that motivate vLLM in Post 3. Explain GPU/LLM concepts at the point they become relevant — not up front.
 
-### Concepts to nail
-- Prefill vs. decode phases and why they have different bottlenecks.
-- The KV cache: what it is, why it dominates memory, how it grows.
-- Why decode is memory-bandwidth bound, not compute bound.
-- Why naive batching helps, and what breaks (head-of-line blocking with variable lengths).
+### Post structure
+1. **Introduction** — pick up from Post 1: concurrency doesn't help, same behaviour as a queue with 1 consumer. Natural next step: batching, same as batching in message queues.
+2. **Implementation** — static batching in `src/server.py`: request queue, fixed batch size, pad to longest, single `model.generate()` call.
+3. **Benchmark** — same concurrency levels as Post 1. Show throughput improvement.
+4. **Potential problems** — explain each concept when we hit it: memory wall (KV cache explained here), padding waste (conceptual only — can't benchmark without GPU profiler), HOL blocking (prefill vs decode explained here).
+5. **Benchmark — demonstrating the problems** — memory wall: ramp batch size until VRAM fills. HOL blocking: mixed short/long workload, show short-request p99 latency. Padding waste: explain why it can't be benchmarked.
+6. **What's next** — continuous batching + PagedAttention (Post 3).
 
-### Build
-- Implement static batching on top of `transformers`.
-- Compare throughput vs. Post 1 at the same concurrency levels.
-- Construct a benchmark that demonstrates HOL blocking (mix of short and long requests).
-- **Response quality regression check**: run the same prompt solo and batched, confirm outputs match. Batching with wrong attention masks can silently corrupt outputs — 200 OK with plausible-looking gibberish. This is the one place in the series where correctness needs a guard.
+### Decisions
+- No conversation mode in this post — adds nothing to the static batching story. Introduce in Post 3.
+- Fixed batch size (not timeout-based) — simpler to explain.
+- Quality regression: correct by construction with proper attention masks — note briefly, no dedicated benchmark.
 
 ### Hook for Post 3
-"Static batching helps but creates a new problem. Someone already solved it."
+"Static batching is the right instinct. The atomic batch is the wrong abstraction."
 
-### Conversation thread (starts here)
-Head-of-line blocking is most visible with conversations: a long conversation holds up short ones in the same batch because we pad to the longest sequence in the batch. Introduce a `--conversation-mode` flag in the benchmark that sends multi-turn conversations (accumulated history across turns) instead of independent first turns. Run both modes: single-turn (comparable to Post 1) and conversation mode (reveals HOL blocking). This flag carries forward through Posts 3 and 4.
+### Conversation thread (starts in Post 3)
+Conversation mode (`--conversation-mode` flag) introduced in Post 3 where KV cache reuse across turns and prefix caching become the story.
 
 ---
 
