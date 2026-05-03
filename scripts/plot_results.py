@@ -147,38 +147,36 @@ def latency_chart(results: dict) -> alt.Chart:
 
 
 def memory_chart(results: dict) -> alt.Chart | None:
-    """Bar chart: peak VRAM used (MiB) vs concurrency.
-    Bars are red when failures occurred. Ceiling shown as a reference line.
+    """Bar chart: peak VRAM usage (%) vs concurrency.
+    Bars are red when failures occurred. 100% ceiling shown as a reference line.
     Returns None if no GPU memory data is present.
     """
     concurrency_levels = sorted(results.keys())
     sort_order = [str(c) for c in concurrency_levels]
 
     rows = []
-    total_mib = None
     for c in concurrency_levels:
         d = results[c]
         s = d.get("summary", {})
         samples = d.get("gpu_samples", [])
         if not samples or "error" in s:
             continue
-        peak = max(s["memory_used_mib"] for s in samples)
-        free = samples[0]["memory_used_mib"] + samples[0]["memory_free_mib"]
-        if total_mib is None:
-            total_mib = free + peak  # approximation from first sample
-        total_mib = max(total_mib, peak + samples[0]["memory_free_mib"])
+        # Total VRAM = used + free from any sample
+        total_mib = samples[0]["memory_used_mib"] + samples[0]["memory_free_mib"]
+        peak_mib = max(s["memory_used_mib"] for s in samples)
+        peak_pct = round(100 * peak_mib / total_mib, 1)
         rows.append({
             "concurrency": str(c),
-            "memory_mib": peak,
+            "peak_pct": peak_pct,
             "failed": s.get("num_failed", 0) > 0,
         })
 
-    if not rows or total_mib is None:
+    if not rows:
         return None
 
     bars = alt.Chart(alt.Data(values=rows)).mark_bar().encode(
         x=alt.X("concurrency:O", title="Concurrency", sort=sort_order, axis=alt.Axis(labelAngle=0)),
-        y=alt.Y("memory_mib:Q", title="Peak VRAM Used (MiB)", scale=alt.Scale(domain=[0, total_mib * 1.05])),
+        y=alt.Y("peak_pct:Q", title="Peak VRAM Usage (%)", scale=alt.Scale(domain=[0, 105])),
         color=alt.condition(
             "datum.failed",
             alt.value("#E45756"),
@@ -186,19 +184,19 @@ def memory_chart(results: dict) -> alt.Chart | None:
         ),
         tooltip=[
             alt.Tooltip("concurrency:O", title="Concurrency"),
-            alt.Tooltip("memory_mib:Q", title="Peak VRAM (MiB)", format=".0f"),
+            alt.Tooltip("peak_pct:Q", title="Peak VRAM (%)", format=".1f"),
         ],
     )
 
-    ceiling = alt.Chart(alt.Data(values=[{"y": total_mib}])).mark_rule(
+    ceiling = alt.Chart(alt.Data(values=[{"y": 100}])).mark_rule(
         strokeDash=[6, 4], color="#aaa", strokeWidth=1
     ).encode(y="y:Q")
 
     ceiling_label = alt.Chart(
-        alt.Data(values=[{"concurrency": sort_order[-1], "y": total_mib}])
+        alt.Data(values=[{"concurrency": sort_order[-1], "y": 100}])
     ).mark_text(
         align="right", dx=-6, dy=-10, color="#999", fontSize=11,
-        text=f"GPU total ({total_mib:,} MiB)",
+        text="GPU capacity (100%)",
     ).encode(
         x=alt.X("concurrency:O", sort=sort_order),
         y=alt.Y("y:Q"),
