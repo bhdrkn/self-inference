@@ -16,14 +16,14 @@ If you have ever built something that had to handle real load and wondered what 
 
 | # | Post | Status | Branch | What breaks |
 |---|------|--------|--------|-------------|
-| 1 | Running an LLM at home is easy. Serving one is not. | 🟡 In progress | `01-naive` | A FastAPI server wrapping `transformers.generate()` with a thread pool. Concurrent requests, standard backend setup. Measure what happens under load. |
+| 1 | Running an LLM at home is easy. Serving one is not. | ✅ Complete | `01-naive` | A FastAPI server wrapping `transformers.generate()` with a thread pool. Concurrent requests, standard backend setup. Measure what happens under load. |
 | 2 | Why your GPU is bored: batching, KV cache, and the memory wall | ⚪ Planned | `02-batching` | Static batching on top of `transformers`. Better throughput, but a new failure mode appears: head-of-line blocking from variable-length requests. |
 | 3 | Continuous batching and PagedAttention: how vLLM actually works | ⚪ Planned | `03-vllm` | Drop in vLLM. Read the scheduler and block manager source. Understand why it's different, not just that it's faster. |
 | 4 | Routing inference: when one GPU isn't enough | ⚪ Planned | `04-routing` | Two vLLM instances behind a custom router. Round-robin as baseline. Prefix-aware routing to maximize KV cache reuse across replicas. |
 | 5 | Observability for inference: what to measure and why | ⚪ Planned | `05-observability` | Instrument the Post 4 stack. TTFT, ITL, p99 under variable request cost. What the metrics reveal — and what they hide. |
 | 6 | What I'd do differently: a retrospective | ⚪ Planned | `06-retrospective` | Honest reflection on what surprised me, what I got wrong, and what I deliberately left untouched. |
 
-Each branch contains the code as it exists at the end of that post. `main` always reflects the latest completed post.
+Each branch contains the code as it exists at the end of that post. `master` always reflects the latest completed post.
 
 ## Reproducing
 
